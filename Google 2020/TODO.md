@@ -1,6 +1,6 @@
  # Based off [This compilation](https://leetcode.com/list/52657ph7/)
 
-*   1\. [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays)
+
     
 *   2\. [Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching)
     
