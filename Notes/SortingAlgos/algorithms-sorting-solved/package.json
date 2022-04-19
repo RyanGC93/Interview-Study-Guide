@@ -1,0 +1,16 @@
+{
+  "name": "sorting-algorithms",
+  "version": "1.0.0",
+  "description": "This project contains a skeleton for you to implement five sorting algorithms in the `/problems` folder. Please refer to the readings for an in-depth explanation of how the each of the sorting functions work.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1"
+  }
+}
