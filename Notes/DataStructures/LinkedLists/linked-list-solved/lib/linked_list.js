@@ -47,27 +47,27 @@ class LinkedList {
       this.tail = newNode;
     }
     this.length++;
-    return this
+    return this;
   }
 
   // TODO: Implement the removeTail method here
   removeTail() {
-    if(!this.head) return undefined
-    if(this.length ===1){
-        this.head = null
-        this.tail = null
-        this.length = 0
-        return this
+    if (!this.head) return undefined;
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+      this.length = 0;
+      return this;
     }
     let current = this.head;
     while (current.next !== this.tail) {
       current = current.next;
     }
-    let tail = this.tail
+    let tail = this.tail;
     current.next = null;
     this.tail = current;
     this.length--;
-    return tail
+    return tail;
   }
 
   // TODO: Implement the addToHead method here
@@ -81,51 +81,116 @@ class LinkedList {
       this.head = newNode;
     }
     this.length++;
-    return this
+    return this;
   }
 
   // TODO: Implement the removeHead method here
   removeHead() {
-      let head = this.head
-      if(!this.head) return undefined
-      if(this.length ==1 ){
-          this.head = null
-          this.tail = null
-      }
-      this.head = this.head.next
-      this.length--
-      return head
-
+    if (!this.head) return undefined;
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+      this.length = 0;
+      return this;
+    }
+    let head = this.head;
+    this.head = this.head.next;
+    this.length--;
+    return head;
   }
-
 
   // TODO: Implement the contains method here
   contains(target) {
-      if(!this.head) return undefined
-      if(!this.head.value === target) return true
-      let current = this.head
-      while(current.next){
-          
-          if(current.value === target) return true
-          current=current.next
+    let current = this.head;
+    while (current) {
+      if (current.value === target) {
+        return true;
       }
-      return false
+      current = current.next;
+    }
+    return false;
   }
 
   // TODO: Implement the get method here
-  get(index) {}
+  get(index) {
+    let current = this.head;
+    let count = 0;
+    while (current) {
+      if (count === index) {
+        return current;
+      }
+      current = current.next;
+      count++;
+    }
+    return null;
+  }
 
   // TODO: Implement the set method here
-  set(index, val) {}
+  set(index, val) {
+    let current = this.head;
+    let count = 0;
+    while (current) {
+      if (count === index) {
+        current.value = val;
+        return true;
+      }
+      current = current.next;
+      count++;
+    }
+    return false;
+  }
 
   // TODO: Implement the insert method here
-  insert(index, val) {}
+  insert(index, val) {
+    if (index === 0) {
+      this.addToHead(val);
+    } else if (index === this.length) {
+      this.addToTail(val);
+    } else {
+      let newNode = new Node(val);
+      let current = this.head;
+      let count = 0;
+      while (current) {
+        if (count === index - 1) {
+          newNode.next = current.next;
+          current.next = newNode;
+          this.length++;
+          return true;
+        }
+        current = current.next;
+        count++;
+      }
+    }
+    return false;
+  }
 
   // TODO: Implement the remove method here
-  remove(index) {}
+  remove(index) {
+    if (index === 0) {
+      this.removeHead();
+    } else if (index === this.length - 1) {
+      this.removeTail();
+    } else {
+      let current = this.head;
+      let count = 0;
+      while (current) {
+        if (count === index - 1) {
+          let removed = current.next;
+          current.next = current.next.next;
+          this.length--;
+          return removed;
+        }
+        current = current.next;
+        count++;
+      }
+    }
+    return undefined;
+  }
 
   // TODO: Implement the size method here
-  size() {}
+  size() {
+    return this.length;
+  }
 }
 
 exports.Node = Node;
