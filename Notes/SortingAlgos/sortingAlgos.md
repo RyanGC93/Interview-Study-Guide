@@ -2,7 +2,6 @@
 
 - [ ] Add Heap Sort Gif
 - [ ] Add Radix Sort Gif
-- [ ] Add practice problems
 
 # Sorting Algorithms Overview
 
@@ -24,6 +23,7 @@
 
 - [ App Academy ](https://open.appacademy.io/learn/js-py---sep-2020-online/week-7-sep-2020-online/selection-sort-code-breakdown)
 - [ Cheat Sheet ](https://www.interviewcake.com/sorting-algorithm-cheat-sheet)
+- [ Practice Problems Repo] (https://github.com/appacademy-starters/algorithms-sorting-starter)
 
 - [ Visualization ](https://visualgo.net/en/sorting?slide=1)
 </details>

@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const { radixSort } = require('../problems/06-radix-sort');
+const { radixSort } = require('../problems/07-radix-sort');
 
 
 describe('radixSort()', () => {
