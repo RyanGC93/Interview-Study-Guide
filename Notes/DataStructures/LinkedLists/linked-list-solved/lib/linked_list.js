@@ -1,26 +1,4 @@
-// ============================================================================
-// Implementation Exercise: Singly Linked List
-// ============================================================================
-//
-// -------
-// Prompt:
-// -------
-//
-// Implement a Singly Linked List and all of its methods below!
-//
-// ------------
-// Constraints:
-// ------------
-//
-// Make sure the time and space complexity of each is equivalent to those
-// in the table provided in the Time and Space Complexity Analysis section
-// of your Linked List reading!
-//
-// -----------
-// Let's Code!
-// -----------
 
-// TODO: Implement a Linked List Node class here
 class Node {
   constructor(val) {
     this.value = val;
@@ -28,7 +6,6 @@ class Node {
   }
 }
 
-// TODO: Implement a Singly Linked List class here
 class LinkedList {
   constructor() {
     this.head = null;
@@ -36,7 +13,6 @@ class LinkedList {
     this.length = 0;
   }
 
-  // TODO: Implement the addToTail method here
   addToTail(val) {
     let newNode = new Node(val);
     if (this.head === null) {
@@ -50,7 +26,6 @@ class LinkedList {
     return this;
   }
 
-  // TODO: Implement the removeTail method here
   removeTail() {
     if (!this.head) return undefined;
     if (this.length === 1) {
@@ -70,7 +45,6 @@ class LinkedList {
     return tail;
   }
 
-  // TODO: Implement the addToHead method here
   addToHead(val) {
     let newNode = new Node(val);
     if (this.head === null) {
@@ -84,7 +58,6 @@ class LinkedList {
     return this;
   }
 
-  // TODO: Implement the removeHead method here
   removeHead() {
     if (!this.head) return undefined;
     if (this.length === 1) {
@@ -99,7 +72,6 @@ class LinkedList {
     return head;
   }
 
-  // TODO: Implement the contains method here
   contains(target) {
     let current = this.head;
     while (current) {
@@ -111,7 +83,6 @@ class LinkedList {
     return false;
   }
 
-  // TODO: Implement the get method here
   get(index) {
     let current = this.head;
     let count = 0;
@@ -125,7 +96,6 @@ class LinkedList {
     return null;
   }
 
-  // TODO: Implement the set method here
   set(index, val) {
     let current = this.head;
     let count = 0;
@@ -140,7 +110,6 @@ class LinkedList {
     return false;
   }
 
-  // TODO: Implement the insert method here
   insert(index, val) {
     if (index === 0) {
       this.addToHead(val);
@@ -164,7 +133,6 @@ class LinkedList {
     return false;
   }
 
-  // TODO: Implement the remove method here
   remove(index) {
     if (index === 0) {
       this.removeHead();
@@ -187,7 +155,6 @@ class LinkedList {
     return undefined;
   }
 
-  // TODO: Implement the size method here
   size() {
     return this.length;
   }
