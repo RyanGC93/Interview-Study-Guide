@@ -1,7 +1,4 @@
-# Todo
 
-- [ ] Add Heap Sort Gif
-- [ ] Add Radix Sort Gif
 
 # Sorting Algorithms Overview
 

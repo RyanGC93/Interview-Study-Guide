@@ -1,4 +1,6 @@
-#### Common Trees
+# Trees
+
+## Common Trees
 
 - Generic binary tree
 - Binary search tree
@@ -19,15 +21,16 @@
 - **balanced** - a tree where the difference in height between any two nodes is at most 1
 - **complete** - a tree where all levels are filled, with the possible exception of the last level and the bottom has all nodes filled as far left as possible
 - **depth** - the number of edges from the root to a node
-- **BFS** - breadth first search
-- **DFS** - depth first search
+- **BFS** - breadth first search (Uses a queue)
+- **DFS** - depth first search (Uses a stack)
   - **Pre-order** - visit the root node first, then visit the left subtree, then the right subtree
   - **In-order** - visit the left subtree, then the root node, then the right subtree
   - **Post-order** - visit the left subtree, then the right subtree, then the root node
 
-### Binary Search Tree
+## Binary Search Tree
 
-#### Definition
+---
+### Definition
 
 - the left subtree contains values less than the root **left < root**
 - AND the right subtree contains values greater than or equal to the root **right >= root**
