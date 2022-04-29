@@ -1,25 +1,55 @@
-// Implement a function that takes the root of a Binary Tree
-// and returns an array containing the values from a pre-order
-// traversal.
 function preOrderArray(root) {
-    // Your code here
+    if(!root) return [];
+    const result = [];
+    const stack = [root];
+    while (stack.length) {
+        const node = stack.pop();
+        result.push(node.val);
+        if (node.right) {
+            stack.push(node.right);
+        }
+        if (node.left) {
+            stack.push(node.left);
+        }
+    }
+    return result;
 }
 
-// Implement a function that takes the root of a Binary Tree
-// and returns an array containing the values from an in-order
-// traversal.
 function inOrderArray(root) {
-    // Your code here
+    if(!root) return [];
+    const result = [];
+    const stack = [];
+    let current = root;
+    while (stack.length || current) {
+        if (current) {
+            stack.push(current);
+            current = current.left;
+        } else {
+            current = stack.pop();
+            result.push(current.val);
+            current = current.right;
+        }
+    }
+    return result;
 }
 
-// Implement a function that takes the root of a Binary Tree
-// and returns an array containing the values from a post-order
-// traversal.
 function postOrderArray(root) {
-    // Your code here
+    if(!root) return [];
+    const result = [];
+    const stack = [root];
+    let current = root;
+    while (stack.length) {
+        current = stack.pop();
+        result.push(current.val);
+        if (current.left) {
+            stack.push(current.left);
+        }
+        if (current.right) {
+            stack.push(current.right);
+        }
+    }
+    return result;
 }
-
-
 module.exports = {
   preOrderArray,
   inOrderArray,

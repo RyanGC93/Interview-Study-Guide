@@ -1,7 +1,11 @@
+# Stack and Queues
 
 
-Stack and Queue Properties
---------------------------
+<details>
+<summary>Stack and Queue Properties</summary>
+
+<br>
+
 
 Stacks and Queues are so similar in composition that we can discuss their properties together. They track the following three properties:
 
@@ -13,14 +17,18 @@ Stacks and Queues are so similar in composition that we can discuss their proper
 | \---- | Stacks do not have an equivalent | `back` | The last node in the Queue. |
 | `length` | The number of nodes in the Stack; the Stack's length. | `length` | The number of nodes in the Queue; the Queue's length. |
 
+</details>
 
+<br>
 
-### Stacks
+### Stacks (FIFO)
 
-- FIFO
+---
 
 <details>
 <summary>Methods</summary>
+
+<br>
 
 | Type | Name | Description | Returns |
 | --- | --- | --- | --- |
@@ -30,12 +38,16 @@ Stacks and Queues are so similar in composition that we can discuss their proper
 
 </details>
 
-### Queues
+<br>
 
-- LIFO
+### Queues (LILO)
+
+---
 
 <details>
 <summary>Methods</summary>
+
+<br>
 
 | Type | Name | Description | Returns |
 | --- | --- | --- | --- |
@@ -45,7 +57,12 @@ Stacks and Queues are so similar in composition that we can discuss their proper
 
 </details>
 
-Time and Space Complexity Analysis
+<details>
+<summary>Time and Space Complexity Analysis
+</summary>
+
+<br>
+
 ----------------------------------
 
 | Data Structure Operation | Time Complexity (Avg) | Time Complexity (Worst) | Space Complexity (Worst) |

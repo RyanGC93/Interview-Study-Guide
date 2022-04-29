@@ -46,7 +46,7 @@ class MaxHeap {
   deleteMax() {
     let max = this.array[1];
     this.array[1] = this.array.pop();
-    this.siftDown(this.array[1]);
+    this.siftDown(1);
     return max;
   }
 

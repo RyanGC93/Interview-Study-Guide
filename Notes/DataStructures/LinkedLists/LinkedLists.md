@@ -1,7 +1,11 @@
 # Linked Lists
 
-**Linked List Properties:**
 
+<details>
+<summary>Properties</summary>
+
+
+**Linked List Properties:**
 | Property | Description                                         |
 | -------- | --------------------------------------------------- |
 | `head`   | The first node in the list.                         |
@@ -18,6 +22,11 @@
 
 **NOTE:** The `previous` property is for Doubly Linked Lists only!
 
+</details>
+
+<details>
+<summary>Types of Linked Lists</summary>
+
 **Linked List Types:**
 
 | List Type         | Description                                                                                                     | Directionality                |
@@ -26,6 +35,11 @@
 | Doubly Linked     | Nodes have two pointers connecting them bi-directionally.                                                       | Head⇄Tail                     |
 | Multiply Linked   | Nodes have two or more pointers, providing a variety of potential node orderings.                               | Head⇄Tail, A→Z, Jan→Dec, etc. |
 | Circularly Linked | Final node's `next` pointer points to the first node, creating a non-linear, circular version of a Linked List. | Head→Tail→Head→Tail           |
+
+</details>
+
+<details>
+<summary>Linked List Methods</summary>
 
 **Linked List Methods:**
 
@@ -42,6 +56,10 @@
 | Access    | `set`        | Updates the value of a node at the "index", or position, specified. | Boolean             |
 | Meta      | `size`       | Returns the current size of the Linked List.                        | Integer             |
 
+</details>
+
+<details>
+<summary>Linked List Time Complexity</summary>
 
 Time and Space Complexity Analysis
 ----------------------------------
@@ -52,6 +70,11 @@ Time and Space Complexity Analysis
 | Search                   | `Θ(n)`                | `O(n)`                  | `O(n)`                   |
 | Insertion                | `Θ(1)`                | `O(1)`                  | `O(n)`                   |
 | Deletion                 | `Θ(1)`                | `O(1)`                  | `O(n)`                   |
+
+</details>
+
+<details>
+<summary>Linked List Code Implementation</summary>
 
 ### Linked List Implementation
 
