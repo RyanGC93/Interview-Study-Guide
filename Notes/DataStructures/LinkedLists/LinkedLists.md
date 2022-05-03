@@ -1,5 +1,18 @@
 # Linked Lists
 
+<details>
+  <summary> Resources </summary>
+
+- [4 Incredibly Useful Linked List Logic for Interview](https://medium.com/javarevisited/4-incredibly-useful-linked-list-tips-for-interview-79d80a29f8fc)
+
+</detail>
+
+<details>
+  <summary> Quick Notes </summary>
+
+- Use Dummy Nodes to avoid edge cases (https://stackoverflow.com/questions/37324972/what-is-a-dummy-head)
+
+</detail>
 
 <details>
 <summary>Properties</summary>
