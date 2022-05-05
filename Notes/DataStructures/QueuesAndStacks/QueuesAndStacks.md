@@ -1,5 +1,12 @@
 # Stack and Queues
 
+<details>
+    <summary> Resources </summary>
+
+-    [Stacks and Queues Quizlet](https://quizlet.com/696951392/stack-and-queues-flash-cards/)
+  
+</details>
+
 
 <details>
 <summary>Stack and Queue Properties</summary>
@@ -56,6 +63,11 @@ Stacks and Queues are so similar in composition that we can discuss their proper
 | Meta | `size` | Returns the current size of the Queue. | Integer |
 
 </details>
+
+
+### Time Complexity of Stacks and Queues
+
+---
 
 <details>
 <summary>Time and Space Complexity Analysis

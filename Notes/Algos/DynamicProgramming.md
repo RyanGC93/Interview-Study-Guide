@@ -14,6 +14,7 @@
 - Performance
   - Time complexity >> **O(n)**
   - Space complexity >> **O(n)**
+
 ## Tabulation
 
 - Tabulation is a technique to solve a problem in a way that can be used to solve the same problem in the future.
@@ -25,3 +26,28 @@
   - Time complexity >> **O(n)**
   - Space complexity >> **O(n)**
     - Can be refactored to **O(1)**
+
+## Coding Example: 
+
+<details>
+	<summary style="text-indent: 20px;">Fibonacci</summary>
+
+
+
+<details>
+		<summary style="text-indent: 40px;">Naive Approach</summary>
+
+
+</details>
+
+<details>
+		<summary style="text-indent: 40px;">Memoization</summary>
+
+
+</details>
+
+<details>
+		<summary style="text-indent: 40px;">Tabulation</summary>
+
+</details>
+</details>

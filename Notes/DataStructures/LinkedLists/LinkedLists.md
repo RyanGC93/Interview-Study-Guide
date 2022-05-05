@@ -2,10 +2,10 @@
 
 <details>
   <summary> Resources </summary>
-
+- [Linked List Quizlet](https://quizlet.com/693898026/linked-list-flash-cards/)
 - [4 Incredibly Useful Linked List Logic for Interview](https://medium.com/javarevisited/4-incredibly-useful-linked-list-tips-for-interview-79d80a29f8fc)
 
-</detail>
+</details>
 
 <details>
   <summary> Quick Notes </summary>
