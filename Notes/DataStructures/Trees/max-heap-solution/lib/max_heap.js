@@ -44,7 +44,11 @@ class MaxHeap {
 
   }
   deleteMax() {
+<<<<<<< HEAD
     if (!this.array[1]) return null;
+=======
+    if(!this.array[1]) {
+>>>>>>> 3751b58226a56a1e6ff3fd310f41849f057dd9d8
     let max = this.array[1];
     if (this.array.length === 2) {
       this.array.pop();
