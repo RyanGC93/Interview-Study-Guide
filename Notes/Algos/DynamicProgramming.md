@@ -2,7 +2,9 @@
 
 - Most of the time, we can solve a problem with dynamic programming in two ways
   - Memoization **(top-down)**
+    - The Top Down approach is to solve the problem by solving the subproblems first and then combine the solutions.
   - Tabulation **(bottom-up)**
+    - The bottom-up approach is to solve the problem by combining the solutions of the subproblems.
 
 
 ## Memoization

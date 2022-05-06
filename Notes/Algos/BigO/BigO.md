@@ -1,4 +1,9 @@
-# Big O Complexity Overview
+# Big O 
+
+## Complexity Classes
+
+<details>
+<summary>Overview</summary>
 
 |Big-O Complexity | Class Name | Description |
 |------------------|------------| ----------- |
@@ -10,25 +15,18 @@
 | O(2^n) | exponential |
 | O(n!) | factorial |
 
+</details>
 
-
-
-# Common  Data Structures Operations (@worst)
-
-| |Access|Search |Assertion|Deletion |Space|
-|:----|:----|:----|:----|:----|:----|
-|Array|O(1)|O(n)|O(n)|O(n)|O(n)|
-|Stack|O(n)|O(n)|O(1)|O(1)|O(n)|
-|Queue|O(n)|O(n)|O(1)|O(1)|O(n)|
-|Singly-Linked List|O(n)|O(n)|O(1)|O(1)|O(n)|
-|Doubly-Linked List|O(n)|O(n)|O(1)|O(1)|O(n)|
-|Hash Table|N/A|O(n)|O(n)|O(n)|O(n)|
-|Binary Search Tree|O(n)|O(n)|O(n)|O(n)|O(n)|
+<details>
+<summary>Diagram</summary>
 
 # Diagram
 
 ![](https://learntocodetogether.com/wp-content/uploads/2019/08/download-1-1-1024x677.png)
+</details>
 
+<details>
+<summary>Code Examples</summary>
 
 # Constant 
 ```js
@@ -155,3 +153,38 @@ function factorial(n) {
   }
 }
 ```
+</details>
+
+## Time Complexities
+
+<details>
+<summary>Common  Data Structures Operations (@worst)</summary>
+
+### Common  Data Structures Operations (@worst)
+
+| |Access|Search |Assertion|Deletion |Space|
+|:----|:----|:----|:----|:----|:----|
+|Array|O(1)|O(n)|O(n)|O(n)|O(n)|
+|Stack|O(n)|O(n)|O(1)|O(1)|O(n)|
+|Queue|O(n)|O(n)|O(1)|O(1)|O(n)|
+|Singly-Linked List|O(n)|O(n)|O(1)|O(1)|O(n)|
+|Doubly-Linked List|O(n)|O(n)|O(1)|O(1)|O(n)|
+|Hash Table|N/A|O(n)|O(n)|O(n)|O(n)|
+|Binary Search Tree|O(n)|O(n)|O(n)|O(n)|O(n)|
+|Hash|N/A|O(n)|O(n)|O(n)|O(n)|
+
+</details>
+
+<details>
+<summary style=""> Sorting Algorithms</summary>
+
+| Sorting Algo  |  Worst Time Complexity | Space Complexity   |
+|:---|---|---|
+| [Bubble Sort](./algorithms-sorting-solved/problems/01-bubble-sort.js) | O(n^2) | O(1) |
+| [Selection Sort](./algorithms-sorting-solved/problems/02-selection-sort.js)   | O(n^2)  | O(1)  |
+| [Insertion Sort](./algorithms-sorting-solved/problems/03-insertion-sort.js)   | O(n^2)  | O(n)   |
+| [Merge Sort](./algorithms-sorting-solved/problems/04-merge-sort.js)  | O(n log n)   |  O (log n) |
+| [Quick Sort](./algorithms-sorting-solved/problems/05-quick-sort.js)  | O(n^2)   | O (log n)  |
+| Heap Sort  | O(n log n)  |  O(1) |
+| Radix Sort  | O(n)  | O(n)  |
+</details>
