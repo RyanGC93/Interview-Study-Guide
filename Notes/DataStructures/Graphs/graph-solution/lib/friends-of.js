@@ -30,12 +30,27 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
  */
 
-function friendsOfRecursion(name, adjacencyList, visited, maxDistance, currentDistance) {
-  throw new Error('Replace this error with your implementation.');
+ function friendsOfRecursion(target, adjacencyList, visited, maxDistance, currentDistance) {
+  if (currentDistance >= maxDistance) return; // if we have reached the maximum distance, return
+
+  visited.add(target); // add the target to the visited set
+
+  for (let nextFriend of adjacencyList[target]) { // for each friend of the target
+    friendsOfRecursion(nextFriend, adjacencyList, visited, maxDistance, currentDistance + 1); // recurse through the graph
+  }
 }
 
-function friendsOf(adjacencyList, name, distance) {
-  throw new Error('Replace this error with your implementation.');
+function friendsOf(adjacencyList, target, distance) { 
+  if (target in adjacencyList) { // if the target is in the graph object
+    let visited = new Set(); // create a new set to store the visited nodes(prevents infinite recursion)
+
+    for (let name of adjacencyList[target]) { // for each friend of the target
+      friendsOfRecursion(name, adjacencyList, visited, distance, 0); // recurse through the graph
+    }
+
+    visited.delete(target); // remove the target from the visited set
+    return Array.from(visited); // convert the visited set into an array
+  }
 }
 
 /******************************************************************************
