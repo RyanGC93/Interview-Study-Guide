@@ -1,14 +1,31 @@
-## Graph
+# Graph
+## Definition 
 
-#### Defintion 
-
-- A graph is a set of nodes and edges.
+- A graph is a set of nodes and edges together with a set of unordered pairs of these vertices for an **undirected graph** or a set of ordered 
+pairs for a **directed graph**.
   - It may or may not have cycles.
   - like a tree, it may or may not have a root.
   - have any number of edges leading from one node to another.
 
 
-#### Node Representation
+### Graph Representation
+- Adjacency List
+  - A list of nodes that are connected to each other.
+  - Each node has a list of edges that connect to it.
+  - Each edge has a node that it connects to.
+- Adjacency Matrix
+  - A 2D array of nodes that are connected to each other.
+  - Each node has a list of edges that connect to it.
+  - Each edge has a node that it connects to.
+- Adjacency Set
+  - A set of nodes that are connected to each other.
+  - Each node has a list of edges that connect to it.
+  - Each edge has a node that it connects to.
+
+### Node Class Representation
+
+<details>
+<summary>Code</summary>
 
 ```js
 class GraphNode {
@@ -17,11 +34,19 @@ class GraphNode {
     this.edges = [];
   }
 }
+class GraphNode {
+  constructor(value) {
+    this.value = value;
+    this.edges = [];
+  }
+}
 ```
-#### Class Representation
+
+</details>
+## Class Representation (adjacent list)
 
 <details>
-<summary>Class Representation</summary>
+<summary>Class Representation Code</summary>
 
   ```js
   class Graph {
@@ -111,21 +136,16 @@ class GraphNode {
 </details>
 
 
-### Graph Representation
-- Adjacency List
-  - A list of nodes that are connected to each other.
-  - Each node has a list of edges that connect to it.
-  - Each edge has a node that it connects to.
-- Adjacency Matrix
-  - A 2D array of nodes that are connected to each other.
-  - Each node has a list of edges that connect to it.
-  - Each edge has a node that it connects to.
-- Adjacency Set
-  - A set of nodes that are connected to each other.
-  - Each node has a list of edges that connect to it.
-  - Each edge has a node that it connects to.
+
+
+<br>
+<br>
+<br>
 
 ### Adjacency List
+
+<details>
+<summary>Adjacency List Code</summary>
 
 ```js
 class Graph {
@@ -152,8 +172,12 @@ class Graph {
 }
 ```
 
+</details>
 
 ### Adjacency Matrix
+
+<details>
+<summary>Adjacency Matrix Code</summary>
 
 ```js
 class Graph {
@@ -191,34 +215,14 @@ class Graph {
 }
 ```
 
-#### Graph Traversal
+</details>
+
+## Graph Traversal
 
 ### Graph Traversal w/ GraphNode
 
-Let's begin by assuming we have our candidate graph implemented using our `GraphNode` class:
-
-```js
-class GraphNode {
-    constructor(val) {
-        this.val = val;
-        this.neighbors = [];
-    }
-}
-
-let a = new GraphNode('a');
-let b = new GraphNode('b');
-let c = new GraphNode('c');
-let d = new GraphNode('d');
-let e = new GraphNode('e');
-let f = new GraphNode('f');
-a.neighbors = [e, c, b];
-c.neighbors = [b, d];
-e.neighbors = [a];
-f.neighbors = [e];
-```
-
----
-# Recursive Depth First Search
+<details>
+<summary>Graph Traversal w/ GraphNode Code</summary>
 
 
 ---
@@ -245,7 +249,7 @@ depthFirstRecur(f);
 
 ```
 
-# Iterative Depth First Search
+### Iterative Depth First Search
 
 ```js
 function depthFirstIter(node) {
@@ -271,24 +275,25 @@ function depthFirstIter(node) {
 depthFirstIter(f);
 ```
 
-Graph Traversal w/ Adjacency List
+</details>
+
+<details>
+<summary>Depth First Search Code with Adjacency List</summary>
+
+# Graph Traversal w/ Adjacency List
+
 
   
-  ```js
+```js
   // using Adjacency List representation
 
 function depthFirstRecur(node, graph, visited=new Set()) {
     if (visited.has(node)) return;
-
-    console.log(node);
     visited.add(node);
-
     graph[node].forEach(neighbor => {
         depthFirstRecur(neighbor, graph, visited);
     });
 }
-
-depthFirstRecur('f', graph);
 
 // Refactored
 
@@ -311,4 +316,3 @@ function _depthFirstRecur(node, graph, visited) {
     });
 }
 
-depthFirst(graph);
