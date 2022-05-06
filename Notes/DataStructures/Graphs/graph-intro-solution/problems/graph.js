@@ -1,31 +1,59 @@
 
 class Graph {
   constructor() {
-    // Code goes here ...
+    this.adjList = {};
   }
 
   addVertex(vertex) {
-    // Code goes here ...
+    this.adjList[vertex] = [];
   }
-
-  addEdges(srcValue, destValue) {
-    // Code goes here ...
+  addEdges(vertex1, vertex2) {
+    this.adjList[vertex1].push(vertex2);
+    this.adjList[vertex2].push(vertex1);
   }
-
-  buildGraph(edges) {
-    // Code goes here ...
+  removeEdges(vertex1, vertex2) {
+    this.adjList[vertex1] = this.adjList[vertex1].filter(v => v !== vertex2);
+    this.adjList[vertex2] = this.adjList[vertex2].filter(v => v !== vertex1);
   }
-
-  breadthFirstTraversal(startingVertex) {
-    // Code goes here ...
+  removeVertex(vertex) {
+    while (this.adjList[vertex].length) {
+      const adjacentVertex = this.adjList[vertex].pop();
+      this.removeEdges(vertex, adjacentVertex);
+    }
+    delete this.adjList[vertex];
   }
-
-  depthFirstTraversalIterative(startingVertex) {
-    // Code goes here ...
+  depthFirstTraversal(start) {
+    const visited = {};
+    const result = [];
+    const adjacents = this.adjList[start];
+    (function dfsHelper(vertex) {
+      if (!vertex) return null;
+      visited[vertex] = true;
+      result.push(vertex);
+      adjacents.forEach(v => {
+        if (!visited[v]) {
+          dfsHelper(v);
+        }
+      });
+    })(start);
+    return result;
   }
-
-  depthFirstTraversalRecursive(startingVertex, visited = new Set(), vertices = []) {
-    // Code goes here ...
+  breadthFirstTraversal(start) {
+    const visited = {};
+    const result = [];
+    const queue = [start];
+    visited[start] = true;
+    while (queue.length) {
+      const currentVertex = queue.shift();
+      result.push(currentVertex);
+      this.adjList[currentVertex].forEach(v => {
+        if (!visited[v]) {
+          visited[v] = true;
+          queue.push(v);
+        }
+      });
+    }
+    return result;
   }
 
 }
