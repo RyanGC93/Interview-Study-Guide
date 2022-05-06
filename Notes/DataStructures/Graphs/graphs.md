@@ -19,6 +19,20 @@ class GraphNode {
 }
 ```
 
+### Graph Representation
+- Adjacency List
+  - A list of nodes that are connected to each other.
+  - Each node has a list of edges that connect to it.
+  - Each edge has a node that it connects to.
+- Adjacency Matrix
+  - A 2D array of nodes that are connected to each other.
+  - Each node has a list of edges that connect to it.
+  - Each edge has a node that it connects to.
+- Adjacency Set
+  - A set of nodes that are connected to each other.
+  - Each node has a list of edges that connect to it.
+  - Each edge has a node that it connects to.
+
 ### Adjacency List
 
 ```js
@@ -86,3 +100,123 @@ class Graph {
 ```
 
 #### Graph Traversal
+
+### Graph Traversal w/ GraphNode
+
+Let's begin by assuming we have our candidate graph implemented using our `GraphNode` class:
+
+```js
+class GraphNode {
+    constructor(val) {
+        this.val = val;
+        this.neighbors = [];
+    }
+}
+
+let a = new GraphNode('a');
+let b = new GraphNode('b');
+let c = new GraphNode('c');
+let d = new GraphNode('d');
+let e = new GraphNode('e');
+let f = new GraphNode('f');
+a.neighbors = [e, c, b];
+c.neighbors = [b, d];
+e.neighbors = [a];
+f.neighbors = [e];
+```
+
+---
+# Recursive Depth First Search
+
+
+---
+
+```js
+// using GraphNode representation
+
+function depthFirstRecur(node, visited=new Set()) {
+    // if this node has already been visited, then return early
+    if (visited.has(node.val)) return;
+
+    // otherwise it hasn't yet been visited,
+    // so print it's val and mark it as visited.
+    console.log(node.val);
+    visited.add(node.val);
+
+    // then explore each of its neighbors
+    node.neighbors.forEach(neighbor => {
+        depthFirstRecur(neighbor, visited);
+    });
+}
+
+depthFirstRecur(f);
+
+```
+
+# Iterative Depth First Search
+
+```js
+function depthFirstIter(node) {
+    let visited = new Set();
+    let stack = [ node ];
+
+    while (stack.length) {
+        let node = stack.pop();
+
+        // if this node has already been visited, then skip this node
+        if (visited.has(node.val)) continue;
+
+        // otherwise it hasn't yet been visited,
+        // so print it's val and mark it as visited.
+        console.log(node.val);
+        visited.add(node.val);
+
+        // then add its neighbors to the stack to be explored
+        stack.push(...node.neighbors);
+    }
+}
+
+depthFirstIter(f);
+```
+
+Graph Traversal w/ Adjacency List
+
+  
+  ```js
+  // using Adjacency List representation
+
+function depthFirstRecur(node, graph, visited=new Set()) {
+    if (visited.has(node)) return;
+
+    console.log(node);
+    visited.add(node);
+
+    graph[node].forEach(neighbor => {
+        depthFirstRecur(neighbor, graph, visited);
+    });
+}
+
+depthFirstRecur('f', graph);
+
+// Refactored
+
+function depthFirst(graph) {
+    let visited = new Set();
+
+    for (let node in graph) {
+        _depthFirstRecur(node, graph, visited);
+    }
+}
+
+function _depthFirstRecur(node, graph, visited) {
+    if (visited.has(node)) return;
+
+    console.log(node);
+    visited.add(node);
+
+    graph[node].forEach(neighbor => {
+        _depthFirstRecur(neighbor, graph, visited);
+    });
+}
+
+depthFirst(graph);
