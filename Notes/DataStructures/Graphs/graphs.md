@@ -17,11 +17,12 @@ pairs for a **directed graph**.
   - A 2D array of nodes that are connected to each other.
   - Each node has a list of edges that connect to it.
   - Each edge has a node that it connects to.
-- Adjacency Set
-  - A set of nodes that are connected to each other.
-  - Each node has a list of edges that connect to it.
-  - Each edge has a node that it connects to.
 
+| Adjacency List  | Adjacency List  |
+|---|---|
+| Can take up less space (in sparse graphs)  | Takes up more space (in sparse graphs)  |
+| Faster to iterate over all edges  | Slower To iterate over all edges  |
+| Can be slower to lookup specific edge  | Faster to lookup specific edge  |
 ### Node Class Representation
 
 <details>
