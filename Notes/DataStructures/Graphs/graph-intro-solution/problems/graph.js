@@ -1,59 +1,73 @@
-
 class Graph {
   constructor() {
     this.adjList = {};
   }
 
   addVertex(vertex) {
-    this.adjList[vertex] = [];
+    if (!this.adjList[vertex]) this.adjList[vertex] = [];
   }
-  addEdges(vertex1, vertex2) {
-    this.adjList[vertex1].push(vertex2);
-    this.adjList[vertex2].push(vertex1);
+
+  addEdges(srcValue, destValue) {
+    if (!this.adjList[srcValue]) this.addVertex(srcValue);
+    if (!this.adjList[destValue]) this.addVertex(destValue);
+
+    this.adjList[srcValue].push(destValue);
+    this.adjList[destValue].push(srcValue);
   }
-  removeEdges(vertex1, vertex2) {
-    this.adjList[vertex1] = this.adjList[vertex1].filter(v => v !== vertex2);
-    this.adjList[vertex2] = this.adjList[vertex2].filter(v => v !== vertex1);
-  }
-  removeVertex(vertex) {
-    while (this.adjList[vertex].length) {
-      const adjacentVertex = this.adjList[vertex].pop();
-      this.removeEdges(vertex, adjacentVertex);
+
+  buildGraph(edges) {
+    for (let edge of edges) {
+      if (edge.length === 1) {
+        this.addVertex(edge[0])
+      } else {
+        this.addEdges(edge[0], edge[1])
+      }
     }
-    delete this.adjList[vertex];
+    return this.adjList
   }
-  depthFirstTraversal(start) {
-    const visited = {};
-    const result = [];
-    const adjacents = this.adjList[start];
-    (function dfsHelper(vertex) {
-      if (!vertex) return null;
-      visited[vertex] = true;
-      result.push(vertex);
-      adjacents.forEach(v => {
-        if (!visited[v]) {
-          dfsHelper(v);
-        }
-      });
-    })(start);
-    return result;
-  }
-  breadthFirstTraversal(start) {
-    const visited = {};
-    const result = [];
-    const queue = [start];
-    visited[start] = true;
-    while (queue.length) {
-      const currentVertex = queue.shift();
-      result.push(currentVertex);
-      this.adjList[currentVertex].forEach(v => {
-        if (!visited[v]) {
-          visited[v] = true;
-          queue.push(v);
-        }
-      });
+
+  breadthFirstTraversal(startingVertex) {
+    const visited = new Set();
+    const vertices = []
+    const queue = [ startingVertex ];
+
+    while(queue.length){
+      let currentVertex = queue.shift();
+      if (visited.has(currentVertex)) continue;
+      visited.add(currentVertex)
+      vertices.push(currentVertex)
+
+      queue.push(...this.adjList[currentVertex])
     }
-    return result;
+
+    return vertices
+  }
+
+  depthFirstTraversalIterative(startingVertex) {
+    const visited = new Set();
+    const vertices = []
+    const stack = [ startingVertex ];
+
+    while (stack.length) {
+      let currentVertex = stack.pop();
+      if (visited.has(currentVertex)) continue;
+      visited.add(currentVertex)
+      vertices.push(currentVertex)
+
+      stack.push(...this.adjList[currentVertex])
+    }
+
+    return vertices
+  }
+
+  depthFirstTraversalRecursive(startingVertex, visited = new Set(), vertices = []) {
+    if (visited.has(startingVertex)) return;
+    visited.add(startingVertex);
+    vertices.push(startingVertex);
+    for(let neighbor of this.adjList[startingVertex]){
+      this.depthFirstTraversalRecursive(neighbor, visited, vertices)
+    }
+    return vertices;
   }
 
 }
@@ -61,12 +75,3 @@ class Graph {
 module.exports = {
   Graph
 };
-
-
-
-
-
-
-
-
-
