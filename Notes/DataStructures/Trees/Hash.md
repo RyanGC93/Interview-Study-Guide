@@ -1,63 +1,104 @@
+# Heap
 
-## Heap
+Overview:
+- Hash tables are used to store key-value pairs.
 
-![](https://media.geeksforgeeks.org/wp-content/cdn-uploads/MinHeapAndMaxHeap.png)
-### Definition
+Hashing function:
 
-- A heap is a tree where the value of each node is greater than or equal to the values of its children
-  - In min-heap property, the value of each node, or child, is greater than or equal to the value of its parent, with the minimum value at the root node.
-  - In max-heap property, the value of each node, or child, is less than or equal to the value of its parent, with the maximum value at the root node.
-- A heap should be a balanced tree but does not follow the BST property.
+What Makes a Hash Table Good?
+- Hash tables are fast to search.
+- Doesn't cluster outputs at specific indices but rather clusters them in buckets.
+- Deterministic.(Same input always returns same output)
 
 
-### Methods or Operations of Heap
+function hash(key, arrayLen) {
+  let total = 0;
+  let WEIRD_PRIME = 31;
+  for (let i = 0; i < Math.min(key.length, 100); i++) {
+    let char = key[i];
+    let value = char.charCodeAt(0) - 96
+    total = (total * WEIRD_PRIME + value) % arrayLen;
+  }
+  return total;
+}
 
-- find - in order to find an item in a heap
-- insert - in order to add an item in a heap ensuring the heap property is maintained min-heap and max-heap property
-- delete - in order to remove an item in a heap
-- extract - in order to return the value of an item and then delete from heap
-- replace - in order to extract or pop the root and insert or push a new item in a heap ensuring the heap property has maintained min-heap and max-heap property
+Dealing with collisions:
+- Linear probing.
+  - With linear probing, when a collision occurs, the next available slot is used.
+- Separate chaining.
+  - With seperate chaining, at each index, we can store a more sophisticated data structure. (array, linked list, etc.)
 
-Apart from these basic operations, there are other operations such as:
+# Hash Table Class Implementation
 
-- size, which returns the size of heap
-- is-empty, which returns ''true'' if heap is empty or ''false'' if it has value
-- merge, which involves the joining or union of two heaps; all the values from both heaps are included but the original heaps are preserved
-- meld, which involves the joining of two heaps where the values from both heaps are included but the original heaps are destroyed
+```js
 
-So in order to fill the Nth level, (N-1) levels should be completely filled first and the filling of nodes in the Nth level should take place from left to right.
+class HashTable {
+  constructor(size=53){
+    this.keyMap = new Array(size);
+  }
 
-### Time Complexity Analysis
+  _hash(key) {
+    let total = 0;
+    let WEIRD_PRIME = 31;
+    for (let i = 0; i < Math.min(key.length, 100); i++) {
+      let char = key[i];
+      let value = char.charCodeAt(0) - 96
+      total = (total * WEIRD_PRIME + value) % this.keyMap.length;
+    }
+    return total;
+  }
+  set(key,value){
+    let index = this._hash(key);
+    if(!this.keyMap[index]){
+      this.keyMap[index] = [];
+    }
+    this.keyMap[index].push([key, value]);
+  }
+  get(key){
+    let index = this._hash(key);
+    if(this.keyMap[index]){
+      for(let i = 0; i < this.keyMap[index].length; i++){
+        if(this.keyMap[index][i][0] === key) {
+          return this.keyMap[index][i][1]
+        }
+      }
+    }
+    return undefined;
+  }
+  keys(){
+    let keysArr = [];
+    for(let i = 0; i < this.keyMap.length; i++){
+      if(this.keyMap[i]){
+        for(let j = 0; j < this.keyMap[i].length; j++){
+          if(!keysArr.includes(this.keyMap[i][j][0])){
+            keysArr.push(this.keyMap[i][j][0])
+          }
+        }
+      }
+    }
+    return keysArr;
+  }
+  values(){
+    let valuesArr = [];
+    for(let i = 0; i < this.keyMap.length; i++){
+      if(this.keyMap[i]){
+        for(let j = 0; j < this.keyMap[i].length; j++){
+          if(!valuesArr.includes(this.keyMap[i][j][1])){
+            valuesArr.push(this.keyMap[i][j][1])
+          }
+        }
+      }
+    }
+    return valuesArr;
+  }
+}
 
-- Insertion: O(log n)
-> If a node is to be inserted at a level of height H:
-> Complexity of adding a node is: O(1)
-> 
-> Complexity of swapping the nodes(upheapify): O(H)
-> (swapping will be done H times in the worst case scenario)
-> 
-> Total complexity: O(1) + O(H) = O(H)
-> 
-> For a Complete Binary tree, its height H = O(log N), where N represents total no. of nodes.
-> 
-> Therefore, Overall Complexity of insert operation is O(log N).
+```
 
-- Search: O(log n)
+# Time Complexity
 
-- Deletion: O(log n)
-> If a node is to be deleted from a heap with height H:
-> 
-> Complexity of swapping parent node and leaf node is: O(1)
-> 
-> Complexity of swapping the nodes(downheapify): O(H)
-> (swapping will be done H times in the worst case scenario)
-> 
-> Total complexity: O(1) + O(H) = O(H)
-> 
-> For a Complete Binary tree, its height H = O(log N), where N represents total no. of nodes.
-> 
-> Therefore, Overall Complexity of delete operation is O(log N).
-
-- Extraction(min/max): O(1)
-> In order to obtain the minimum value just return the value of the root node (which is the smallest element in Min Heap), So simply return the element at index 0 of the array.
-
+(average case)
+    - Insert: O(1)
+    - Delete: O(1)
+    - Access: O(1)
+  
