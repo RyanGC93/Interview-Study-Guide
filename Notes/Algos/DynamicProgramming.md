@@ -1,4 +1,4 @@
-# Dynamic programming
+# Dynamic programming (Memoization and Tabulation)
 
 - Most of the time, we can solve a problem with dynamic programming in two ways
   - Memoization **(top-down)**

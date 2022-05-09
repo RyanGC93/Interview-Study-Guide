@@ -10,6 +10,21 @@ First of all, a tree is a graph with no cycles.
 </details>
 
 <details>
+<summary>Common Types of Trees</summary>
+
+## Common Trees
+
+- Generic binary tree
+- [Binary search tree](./Notes/BST.md)
+- [Avl tree](./Notes/AVL.md)
+- [Hash](./Notes/Hash.md)
+- [Heap](./Notes/Heap.md)
+- [Red-black tree](./Notes/RedBlack.md)
+
+</details>
+
+
+<details>
 <summary>Node Representation</summary>
 
 ### Node Representation
@@ -25,18 +40,6 @@ class TreeNode {
 ```
 </details>
 
-<details>
-<summary>Common Types of Trees</summary>
-
-## Common Trees
-
-- Generic binary tree
-- Binary search tree
-- AVL tree
-- Red-black tree
-- heap >> an implementation is a priotity queue
-
-</details>
 
 <details>
 <summary>Basic Tree Terminology</summary>
