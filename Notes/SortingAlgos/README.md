@@ -1,20 +1,19 @@
-
-
 # Sorting Algorithms Overview
 
 <details>
 <summary style="text-indent: 20px; font-size:18px"> Cheat Sheet </summary>
 
-| Sorting Algo  |  Worst Time Complexity | Space Complexity   |
-|:---|---|---|
-| [Bubble Sort](./algorithms-sorting-solved/problems/01-bubble-sort.js) | O(n^2) | O(1) |
-| [Selection Sort](./algorithms-sorting-solved/problems/02-selection-sort.js)   | O(n^2)  | O(1)  |
-| [Insertion Sort](./algorithms-sorting-solved/problems/03-insertion-sort.js)   | O(n^2)  | O(n)   |
-| [Merge Sort](./algorithms-sorting-solved/problems/04-merge-sort.js)  | O(n log n)   |  O (log n) |
-| [Quick Sort](./algorithms-sorting-solved/problems/05-quick-sort.js)  | O(n^2)   | O (log n)  |
-| Heap Sort  | O(n log n)  |  O(1) |
-| Radix Sort  | O(n)  | O(n)  |
+| Sorting Algo                                                                | Worst Time Complexity | Space Complexity |
+| :-------------------------------------------------------------------------- | --------------------- | ---------------- |
+| [Bubble Sort](./algorithms-sorting-solved/problems/01-bubble-sort.js)       | O(n^2)                | O(1)             |
+| [Selection Sort](./algorithms-sorting-solved/problems/02-selection-sort.js) | O(n^2)                | O(1)             |
+| [Insertion Sort](./algorithms-sorting-solved/problems/03-insertion-sort.js) | O(n^2)                | O(n)             |
+| [Merge Sort](./algorithms-sorting-solved/problems/04-merge-sort.js)         | O(n log n)            | O (log n)        |
+| [Quick Sort](./algorithms-sorting-solved/problems/05-quick-sort.js)         | O(n^2)                | O (log n)        |
+| Heap Sort                                                                   | O(n log n)            | O(1)             |
+| Radix Sort                                                                  | O(n)                  | O(n)             |
 </details>
+
 <details>
 <summary style="text-indent: 20px; font-size:18px"> Resources </summary>
 
@@ -28,10 +27,10 @@
 <details>
 <summary style="text-indent: 20px; font-size:18px"> Stability </summary>
 
-| Stable | Unstable |
-|:---|---|
-| Counting Sort | Quick Sort |
-| Merge Sort | Heap Sort |
+| Stable         | Unstable       |
+| :------------- | -------------- |
+| Counting Sort  | Quick Sort     |
+| Merge Sort     | Heap Sort      |
 | Insertion Sort | Selection Sort |
 
 </details>
@@ -58,18 +57,30 @@ checking each pair of adjacent items and swapping them if they are in the wrong 
 
 ```js
 
+function swap(array, idx1, idx2) {
+	//swap two elements in an array
+	let temp = array[idx1];
+	array[idx1] = array[idx2];
+	array[idx2] = temp;
+}
+
 function bubbleSort(arr) {
-    for (let i = 0; i < arr.length; i++) { // outer loop
-      for (let j = 0; j < arr.length - i - 1; j++) { // inner loop
-        if (arr[j] > arr[j + 1]) { // if the current element is greater than the next element
-          let temp = arr[j]; // swap the two elements
-          arr[j] = arr[j + 1]; // swap the two elements
-          arr[j + 1] = temp; // swap the two elements
-        }
-      }
-    }
-    return arr; // return the sorted array
-  }
+	for (let i = 0; i < arr.length; i++) {
+		// outer loop
+		for (let j = 0; j < arr.length - i - 1; j++) {
+			// inner loop
+			if (arr[j] > arr[j + 1]) {
+				// if the current element is greater than the next element
+				if (array[j] > array[j + 1]) swap(array, j, j + 1); // swap the two elements
+			}
+		}
+	}
+	return arr; // return the sorted array
+}
+
+//! Time Complexity = O(n^2)
+//! Space Complexity = O(1)
+
 ```
 
 </details>
@@ -115,10 +126,10 @@ function selectionSort(arr) {
         let temp = arr[i]; // set the temp value to the current index
         arr[i] = arr[min]; // set the current index to the minimum value
         arr[min] = temp; // set the minimum value to the temp value
-      }
     }
-    return arr; // return the sorted array
   }
+  return arr; // return the sorted array
+}
 ```
 
 </details>
@@ -199,15 +210,33 @@ function insertionSort(arr) {
 
 ```js
 
-function mergeSort(arr) {
-    if (arr.length < 2) { // if the array has only one element, it is already sorted
-      return arr;
+function merge(left, right) {
+  let result = []; // set result to an empty array
+  while (left.length && right.length) { // while left and right are not empty
+    if (left[0] < right[0]) {
+      result.push(left.shift());
+    } else {
+      result.push(right.shift());
     }
-    let mid = Math.floor(arr.length / 2); // find the middle of the array
-    let left = arr.slice(0, mid); // split the array into two halves
-    let right = arr.slice(mid); // left is the first half, right is the second half
-    return merge(mergeSort(left), mergeSort(right)); // merge the two halves
   }
+  while (left.length) {
+    result.push(left.shift());
+  }
+  while (right.length) {
+    result.push(right.shift());
+  }
+  return result;
+}
+
+function mergeSort(arr) {
+  if (arr.length < 2) { // if the array is less than 2, return the array
+    return arr;
+  }
+  let mid = Math.floor(arr.length / 2); // set mid to the middle of the array
+  let left = arr.slice(0, mid); // set left to the first half of the array
+  let right = arr.slice(mid); // set right to the second half of the array
+  return merge(mergeSort(left), mergeSort(right));
+}
   
 ```
 
