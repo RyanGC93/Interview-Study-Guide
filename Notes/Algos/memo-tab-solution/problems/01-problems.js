@@ -1,4 +1,4 @@
-/*********************************************************************
++/*********************************************************************
 Write a function, lucasNumberMemo(n), that takes in a number.
 The function should return the n-th number of the Lucas Sequence.
 The 0-th number of the Lucas Sequence is 2.

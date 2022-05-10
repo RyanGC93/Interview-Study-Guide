@@ -2,6 +2,7 @@
 
 <details>
   <summary> Resources </summary>
+
 - [Linked List Quizlet](https://quizlet.com/693898026/linked-list-flash-cards/)
 - [4 Incredibly Useful Linked List Logic for Interview](https://medium.com/javarevisited/4-incredibly-useful-linked-list-tips-for-interview-79d80a29f8fc)
 
@@ -12,7 +13,7 @@
 
 - Use Dummy Nodes to avoid edge cases (https://stackoverflow.com/questions/37324972/what-is-a-dummy-head)
 
-</detail>
+</details>
 
 <details>
 <summary>Properties</summary>
@@ -390,3 +391,20 @@ class DoublyLinkedList{
 }
 
 ```
+
+</details>
+
+<details>
+<summary>Fast and Slow Pointer Technique</summary>
+
+-  Slow Pointer is used to find the middle of the linked list
+-  Fast Pointer is used to find the middle of the linked list and fast pointer are simply the two pointers name 
+- If the fast pointer reaches the end of the linked list, then the slow pointer will be in the middle of the linked list
+- The only difference between the fast and slow pointer is that the fast pointer will move two steps each time while the slow pointer will move one step each time
+
+---
+
+**[Examples](https://codeburst.io/fast-and-slow-pointer-floyds-cycle-detection-algorithm-9c7a8693f491)**
+
+
+</details>
