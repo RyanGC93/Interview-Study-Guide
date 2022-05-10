@@ -12,7 +12,7 @@
 
 - Use Dummy Nodes to avoid edge cases (https://stackoverflow.com/questions/37324972/what-is-a-dummy-head)
 
-</detail>
+</details>
 
 <details>
 <summary>Properties</summary>
