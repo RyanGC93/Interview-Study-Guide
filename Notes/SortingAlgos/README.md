@@ -59,18 +59,17 @@ checking each pair of adjacent items and swapping them if they are in the wrong 
 ```js
 
 function bubbleSort(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length - i - 1; j++) {
-      if (arr[j] > arr[j + 1]) {
-        let temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
+    for (let i = 0; i < arr.length; i++) { // outer loop
+      for (let j = 0; j < arr.length - i - 1; j++) { // inner loop
+        if (arr[j] > arr[j + 1]) { // if the current element is greater than the next element
+          let temp = arr[j]; // swap the two elements
+          arr[j] = arr[j + 1]; // swap the two elements
+          arr[j + 1] = temp; // swap the two elements
+        }
       }
     }
+    return arr; // return the sorted array
   }
-  return arr;
-}
-
 ```
 
 </details>
@@ -105,22 +104,21 @@ function bubbleSort(arr) {
 ```js
 
 function selectionSort(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    let min = i;
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[j] < arr[min]) {
-        min = j;
+    for (let i = 0; i < arr.length; i++) { // loop through the array
+      let min = i; // set the minimum value to the current index
+      for (let j = i + 1; j < arr.length; j++) { // loop through the array again
+        if (arr[j] < arr[min]) { // if the value at the current index is less than the minimum value
+          min = j; // set the minimum value to the current index
+        }
+      }
+      if (min !== i) { // if the minimum value is not the current index
+        let temp = arr[i]; // set the temp value to the current index
+        arr[i] = arr[min]; // set the current index to the minimum value
+        arr[min] = temp; // set the minimum value to the temp value
       }
     }
-    if (min !== i) {
-      let temp = arr[i];
-      arr[i] = arr[min];
-      arr[min] = temp;
-    }
+    return arr; // return the sorted array
   }
-  return arr;
-}
-
 ```
 
 </details>
@@ -156,18 +154,17 @@ function selectionSort(arr) {
 ```js
 
 function insertionSort(arr) {
-  for (let i = 1; i < arr.length; i++) {
-    let j = i;
-    while (j > 0 && arr[j - 1] > arr[j]) {
-      let temp = arr[j];
-      arr[j] = arr[j - 1];
-      arr[j - 1] = temp;
-      j--;
+    for (let i = 1; i < arr.length; i++) { // loop through the array
+      let j = i; // set j to i
+      while (j > 0 && arr[j - 1] > arr[j]) { // while j is greater than 0 and the value at j is greater than the value at j - 1
+        let temp = arr[j]; // set temp to the value at j
+        arr[j] = arr[j - 1]; // set the value at j to the value at j - 1
+        arr[j - 1] = temp; // set the value at j - 1 to temp
+        j--; // decrement j
+      }
     }
+    return arr; // return the array
   }
-  return arr;
-}
-
 ```
 
 </details>
@@ -203,15 +200,15 @@ function insertionSort(arr) {
 ```js
 
 function mergeSort(arr) {
-  if (arr.length < 2) {
-    return arr;
+    if (arr.length < 2) { // if the array has only one element, it is already sorted
+      return arr;
+    }
+    let mid = Math.floor(arr.length / 2); // find the middle of the array
+    let left = arr.slice(0, mid); // split the array into two halves
+    let right = arr.slice(mid); // left is the first half, right is the second half
+    return merge(mergeSort(left), mergeSort(right)); // merge the two halves
   }
-  let mid = Math.floor(arr.length / 2);
-  let left = arr.slice(0, mid);
-  let right = arr.slice(mid);
-  return merge(mergeSort(left), mergeSort(right));
-}
-
+  
 ```
 
 </details>
@@ -250,23 +247,23 @@ function mergeSort(arr) {
 
 ```js
 
-function quickSort(arr) {
-  if (arr.length < 2) {
-    return arr;
-  }
-  let pivot = arr[0];
-  let left = [];
-  let right = [];
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] < pivot) {
-      left.push(arr[i]);
-    } else {
-      right.push(arr[i]);
+function quickSort(arr) { // O(n log n)
+    if (arr.length < 2) { // if the array is empty or has one element, it is already sorted
+      return arr;
     }
+    let pivot = arr[0]; // set the pivot to the first element
+    let left = []; // create an array to store the elements smaller than the pivot
+    let right = []; // create an array to store the elements larger than the pivot
+    for (let i = 1; i < arr.length; i++) { // loop through the array
+      if (arr[i] < pivot) { // if the current element is smaller than the pivot
+        left.push(arr[i]); // add it to the left array
+      } else {
+        right.push(arr[i]); // add it to the right array
+      }
+    }
+    return [...quickSort(left), pivot, ...quickSort(right)]; // return the sorted array
   }
-  return [...quickSort(left), pivot, ...quickSort(right)];
-}
-
+  
 ```
 
 </details>
@@ -299,14 +296,14 @@ function quickSort(arr) {
 
 ```js
 
-function heapSort(arr) {
-  let heap = new MaxHeap(arr);
-  let sorted = [];
-  while (heap.size() > 0) {
-    sorted.push(heap.remove());
+function heapSort(arr) {  // O(n log n)
+    let heap = new MaxHeap(arr); // create a max heap
+    let sorted = []; // create an empty array to store the sorted array
+    while (heap.size() > 0) { // while the heap is not empty
+      sorted.push(heap.remove()); // add the max value to the sorted array
+    }
+    return sorted; // return the sorted array
   }
-  return sorted;
-}
 
 ```
 
@@ -342,20 +339,20 @@ function heapSort(arr) {
 
 ```js
 
-function radixSort(arr) {
-  let max = Math.max(...arr);
-  let exp = 1;
-  while (max / exp > 0) {
-    let buckets = Array.from({ length: 10 }, () => []);
-    for (let i = 0; i < arr.length; i++) {
-      let bucket = Math.floor((arr[i] / exp) % 10);
-      buckets[bucket].push(arr[i]);
+function radixSort(arr) { // O(n)
+    let max = Math.max(...arr); // get max in the array
+    let exp = 1; // initialize exponent
+    while (max / exp > 0) { // while max is greater than 0
+      let buckets = Array.from({ length: 10 }, () => []); // create buckets
+      for (let i = 0; i < arr.length; i++) { // for each element in the array
+        let bucket = Math.floor((arr[i] / exp) % 10); // get the bucket number
+        buckets[bucket].push(arr[i]); // push the element into the bucket
+      }
+      arr = [].concat(...buckets); // concatenate the buckets
+      exp *= 10; // increase the exponent
     }
-    arr = [].concat(...buckets);
-    exp *= 10;
+    return arr;
   }
-  return arr;
-}
 
 ```
 
