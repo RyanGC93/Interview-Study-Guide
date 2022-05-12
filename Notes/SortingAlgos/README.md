@@ -1,20 +1,19 @@
-
-
 # Sorting Algorithms Overview
 
 <details>
 <summary style="text-indent: 20px; font-size:18px"> Cheat Sheet </summary>
 
-| Sorting Algo  |  Worst Time Complexity | Space Complexity   |
-|:---|---|---|
-| [Bubble Sort](./algorithms-sorting-solved/problems/01-bubble-sort.js) | O(n^2) | O(1) |
-| [Selection Sort](./algorithms-sorting-solved/problems/02-selection-sort.js)   | O(n^2)  | O(1)  |
-| [Insertion Sort](./algorithms-sorting-solved/problems/03-insertion-sort.js)   | O(n^2)  | O(n)   |
-| [Merge Sort](./algorithms-sorting-solved/problems/04-merge-sort.js)  | O(n log n)   |  O (log n) |
-| [Quick Sort](./algorithms-sorting-solved/problems/05-quick-sort.js)  | O(n^2)   | O (log n)  |
-| Heap Sort  | O(n log n)  |  O(1) |
-| Radix Sort  | O(n)  | O(n)  |
+| Sorting Algo                                                                | Worst Time Complexity | Space Complexity |
+| :-------------------------------------------------------------------------- | --------------------- | ---------------- |
+| [Bubble Sort](./algorithms-sorting-solved/problems/01-bubble-sort.js)       | O(n^2)                | O(1)             |
+| [Selection Sort](./algorithms-sorting-solved/problems/02-selection-sort.js) | O(n^2)                | O(1)             |
+| [Insertion Sort](./algorithms-sorting-solved/problems/03-insertion-sort.js) | O(n^2)                | O(n)             |
+| [Merge Sort](./algorithms-sorting-solved/problems/04-merge-sort.js)         | O(n log n)            | O (log n)        |
+| [Quick Sort](./algorithms-sorting-solved/problems/05-quick-sort.js)         | O(n^2)                | O (log n)        |
+| Heap Sort                                                                   | O(n log n)            | O(1)             |
+| Radix Sort                                                                  | O(n)                  | O(n)             |
 </details>
+
 <details>
 <summary style="text-indent: 20px; font-size:18px"> Resources </summary>
 
@@ -28,10 +27,10 @@
 <details>
 <summary style="text-indent: 20px; font-size:18px"> Stability </summary>
 
-| Stable | Unstable |
-|:---|---|
-| Counting Sort | Quick Sort |
-| Merge Sort | Heap Sort |
+| Stable         | Unstable       |
+| :------------- | -------------- |
+| Counting Sort  | Quick Sort     |
+| Merge Sort     | Heap Sort      |
 | Insertion Sort | Selection Sort |
 
 </details>
@@ -58,18 +57,29 @@ checking each pair of adjacent items and swapping them if they are in the wrong 
 
 ```js
 
-function bubbleSort(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length - i - 1; j++) {
-      if (arr[j] > arr[j + 1]) {
-        let temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
-      }
-    }
-  }
-  return arr;
+function swap(array, idx1, idx2) {
+	//swap two elements in an array
+	let temp = array[idx1];
+	array[idx1] = array[idx2];
+	array[idx2] = temp;
 }
+
+function bubbleSort(arr) {
+	for (let i = 0; i < arr.length; i++) {
+		// outer loop
+		for (let j = 0; j < arr.length - i - 1; j++) {
+			// inner loop
+			if (arr[j] > arr[j + 1]) {
+				// if the current element is greater than the next element
+				if (array[j] > array[j + 1]) swap(array, j, j + 1); // swap the two elements
+			}
+		}
+	}
+	return arr; // return the sorted array
+}
+
+//! Time Complexity = O(n^2)
+//! Space Complexity = O(1)
 
 ```
 
@@ -105,22 +115,21 @@ function bubbleSort(arr) {
 ```js
 
 function selectionSort(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    let min = i;
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[j] < arr[min]) {
-        min = j;
+    for (let i = 0; i < arr.length; i++) { // loop through the array
+      let min = i; // set the minimum value to the current index
+      for (let j = i + 1; j < arr.length; j++) { // loop through the array again
+        if (arr[j] < arr[min]) { // if the value at the current index is less than the minimum value
+          min = j; // set the minimum value to the current index
+        }
       }
-    }
-    if (min !== i) {
-      let temp = arr[i];
-      arr[i] = arr[min];
-      arr[min] = temp;
+      if (min !== i) { // if the minimum value is not the current index
+        let temp = arr[i]; // set the temp value to the current index
+        arr[i] = arr[min]; // set the current index to the minimum value
+        arr[min] = temp; // set the minimum value to the temp value
     }
   }
-  return arr;
+  return arr; // return the sorted array
 }
-
 ```
 
 </details>
@@ -156,18 +165,17 @@ function selectionSort(arr) {
 ```js
 
 function insertionSort(arr) {
-  for (let i = 1; i < arr.length; i++) {
-    let j = i;
-    while (j > 0 && arr[j - 1] > arr[j]) {
-      let temp = arr[j];
-      arr[j] = arr[j - 1];
-      arr[j - 1] = temp;
-      j--;
+    for (let i = 1; i < arr.length; i++) { // loop through the array
+      let j = i; // set j to i
+      while (j > 0 && arr[j - 1] > arr[j]) { // while j is greater than 0 and the value at j is greater than the value at j - 1
+        let temp = arr[j]; // set temp to the value at j
+        arr[j] = arr[j - 1]; // set the value at j to the value at j - 1
+        arr[j - 1] = temp; // set the value at j - 1 to temp
+        j--; // decrement j
+      }
     }
+    return arr; // return the array
   }
-  return arr;
-}
-
 ```
 
 </details>
@@ -202,16 +210,34 @@ function insertionSort(arr) {
 
 ```js
 
-function mergeSort(arr) {
-  if (arr.length < 2) {
-    return arr;
+function merge(left, right) {
+  let result = []; // set result to an empty array
+  while (left.length && right.length) { // while left and right are not empty
+    if (left[0] < right[0]) {
+      result.push(left.shift());
+    } else {
+      result.push(right.shift());
+    }
   }
-  let mid = Math.floor(arr.length / 2);
-  let left = arr.slice(0, mid);
-  let right = arr.slice(mid);
-  return merge(mergeSort(left), mergeSort(right));
+  while (left.length) {
+    result.push(left.shift());
+  }
+  while (right.length) {
+    result.push(right.shift());
+  }
+  return result;
 }
 
+function mergeSort(arr) {
+  if (arr.length < 2) { // if the array is less than 2, return the array
+    return arr;
+  }
+  let mid = Math.floor(arr.length / 2); // set mid to the middle of the array
+  let left = arr.slice(0, mid); // set left to the first half of the array
+  let right = arr.slice(mid); // set right to the second half of the array
+  return merge(mergeSort(left), mergeSort(right));
+}
+  
 ```
 
 </details>
@@ -250,23 +276,23 @@ function mergeSort(arr) {
 
 ```js
 
-function quickSort(arr) {
-  if (arr.length < 2) {
-    return arr;
-  }
-  let pivot = arr[0];
-  let left = [];
-  let right = [];
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] < pivot) {
-      left.push(arr[i]);
-    } else {
-      right.push(arr[i]);
+function quickSort(arr) { // O(n log n)
+    if (arr.length < 2) { // if the array is empty or has one element, it is already sorted
+      return arr;
     }
+    let pivot = arr[0]; // set the pivot to the first element
+    let left = []; // create an array to store the elements smaller than the pivot
+    let right = []; // create an array to store the elements larger than the pivot
+    for (let i = 1; i < arr.length; i++) { // loop through the array
+      if (arr[i] < pivot) { // if the current element is smaller than the pivot
+        left.push(arr[i]); // add it to the left array
+      } else {
+        right.push(arr[i]); // add it to the right array
+      }
+    }
+    return [...quickSort(left), pivot, ...quickSort(right)]; // return the sorted array
   }
-  return [...quickSort(left), pivot, ...quickSort(right)];
-}
-
+  
 ```
 
 </details>
@@ -299,14 +325,14 @@ function quickSort(arr) {
 
 ```js
 
-function heapSort(arr) {
-  let heap = new MaxHeap(arr);
-  let sorted = [];
-  while (heap.size() > 0) {
-    sorted.push(heap.remove());
+function heapSort(arr) {  // O(n log n)
+    let heap = new MaxHeap(arr); // create a max heap
+    let sorted = []; // create an empty array to store the sorted array
+    while (heap.size() > 0) { // while the heap is not empty
+      sorted.push(heap.remove()); // add the max value to the sorted array
+    }
+    return sorted; // return the sorted array
   }
-  return sorted;
-}
 
 ```
 
@@ -342,20 +368,20 @@ function heapSort(arr) {
 
 ```js
 
-function radixSort(arr) {
-  let max = Math.max(...arr);
-  let exp = 1;
-  while (max / exp > 0) {
-    let buckets = Array.from({ length: 10 }, () => []);
-    for (let i = 0; i < arr.length; i++) {
-      let bucket = Math.floor((arr[i] / exp) % 10);
-      buckets[bucket].push(arr[i]);
+function radixSort(arr) { // O(n)
+    let max = Math.max(...arr); // get max in the array
+    let exp = 1; // initialize exponent
+    while (max / exp > 0) { // while max is greater than 0
+      let buckets = Array.from({ length: 10 }, () => []); // create buckets
+      for (let i = 0; i < arr.length; i++) { // for each element in the array
+        let bucket = Math.floor((arr[i] / exp) % 10); // get the bucket number
+        buckets[bucket].push(arr[i]); // push the element into the bucket
+      }
+      arr = [].concat(...buckets); // concatenate the buckets
+      exp *= 10; // increase the exponent
     }
-    arr = [].concat(...buckets);
-    exp *= 10;
+    return arr;
   }
-  return arr;
-}
 
 ```
 
