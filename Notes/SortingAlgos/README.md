@@ -1,7 +1,7 @@
 # Sorting Algorithms Overview
 
 <details>
-<summary style="text-indent: 20px; font-size:18px"> Cheat Sheet </summary>
+<summary style="text-indent: 20px; font-size:18px"> Big O Cheat Sheet </summary>
 
 | Sorting Algo                                                                | Worst Time Complexity | Space Complexity |
 | :-------------------------------------------------------------------------- | --------------------- | ---------------- |
@@ -17,8 +17,8 @@
 <details>
 <summary style="text-indent: 20px; font-size:18px"> Resources </summary>
 
-- [ App Academy ](https://open.appacademy.io/learn/js-py---sep-2020-online/week-7-sep-2020-online/selection-sort-code-breakdown)
-- [ Cheat Sheet ](https://www.interviewcake.com/sorting-algorithm-cheat-sheet)
+- [App Academy](https://open.appacademy.io/learn/js-py---sep-2020-online/week-7-sep-2020-online/selection-sort-code-breakdown)
+- [Cheat Sheet](https://www.interviewcake.com/sorting-algorithm-cheat-sheet)
 - [ Practice Problems Repo] (https://github.com/appacademy-starters/algorithms-sorting-starter)
 
 - [ Visualization ](https://visualgo.net/en/sorting?slide=1)
@@ -33,24 +33,29 @@
 | Merge Sort     | Heap Sort      |
 | Insertion Sort | Selection Sort |
 
+- *Stability matters when we have key-value pairs where duplicate keys are possible*
+
 </details>
 
 <details>
 <summary style="text-indent: 20px; font-size:18px"> In Depth  </summary>
 
-# Sorting Algorithms
+## Sorting Algorithms
+
 <details>
 
 
-<summary style="text-decoration: underline;margin-top: 5px; font-size: 18px">Bubble Sort  </summary>
-<details>
+<summary style="text-decoration: underline;margin-top: 5px; font-size: 22px;margin-bottom: 10px">Bubble Sort  </summary>
+
+<details >
 <summary style="text-indent: 20px;"> Overview </summary>
 
-- The bubble sort algorithm is a simple sorting algorithm that works by repeatedly stepping through the list to be sorted,
+> - The bubble sort algorithm is a simple sorting algorithm that works by repeatedly stepping through the list to be sorted,
 checking each pair of adjacent items and swapping them if they are in the wrong order.
-- The pass through the list is repeated until the list is sorted.
-- The algorithm, which is a comparison sort, is named for the way smaller or larger elements "bubble" to the top of the list.
-- Bubble sort is a comparison sort, meaning that it can sort items of any type for which a “less-than” relation is defined.
+> - The pass through the list is repeated until the list is sorted.
+> - The algorithm, which is a comparison sort, is named for the way smaller or larger elements "bubble" to the top of the list.
+> - Bubble sort is a comparison sort, meaning that it can sort items of any type for which a “less-than” relation is defined.
+
 </details>
 <details>
 <summary style="text-indent: 20px;">Code </summary>
@@ -87,7 +92,7 @@ function bubbleSort(arr) {
 <details>
 <summary style="text-indent: 20px;">Use Case </summary>
 
-- **Bubble sort is an inefficient algorithm and can be pratical for only small data sets**
+> - **Bubble sort is an inefficient algorithm and can be pratical for only small data sets**
 
 </details>
 <details>
@@ -95,19 +100,25 @@ function bubbleSort(arr) {
 
 ![Visual](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/naive_sorting_algorithms/bubble_sort/images/BubbleSort.gif)
 </details>
+
+---
+
+
 </details>
+
 
 [//]: # (New Section)
 <details>
-<summary style="text-decoration: underline;margin-top: 5px; font-size: 18px">Selection Sort  </summary>
+<summary style="text-decoration: underline;margin-top: 5px; font-size: 22px;margin-bottom: 10px">Selection Sort  </summary>
 <details>
 <summary style="text-indent: 20px;"> Overview </summary>
 
-- The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning.
-- The algorithm maintains two subarrays in a given array.
-- The first subarray is always sorted.
-- The second subarray is unsorted.
-- In every iteration of selection sort, the minimum element (considering ascending order) from the unsorted subarray is picked and moved to the sorted subarray.
+> - The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning.
+> - The algorithm maintains two subarrays in a given array.
+> - The first subarray is always sorted.
+> - The second subarray is unsorted.
+> - In every iteration of selection sort, the minimum element (considering ascending order) from the unsorted subarray is picked and moved to the sorted subarray.
+
 </details>
 <details>
 <summary style="text-indent: 20px;">Code </summary>
@@ -136,7 +147,7 @@ function selectionSort(arr) {
 <details>
 <summary style="text-indent: 20px;">Use Case </summary>
 
-- **Selection sort is an inefficient algorithm and can be practical for only small data sets**
+> - **Selection sort is an inefficient algorithm and can be practical for only small data sets**
 
 </details>
 <details>
@@ -144,19 +155,24 @@ function selectionSort(arr) {
 
 ![Visual](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/naive_sorting_algorithms/selection_sort/images/SelectionSort.gif)
 </details>
+
+---
+
 </details>
+
 
 [//]: # (New Section)
 <details>
-<summary style="text-decoration: underline;margin-top: 5px; font-size: 18px">Insertion Sort  </summary>
+<summary style="text-decoration: underline;margin-top: 5px; font-size: 22px;margin-bottom: 10px">Insertion Sort  </summary>
 <details>
 <summary style="text-indent: 20px;"> Overview </summary>
 
-- The insertion sort algorithm sorts an array by repeatedly inserting an element into a sorted array.
-- The algorithm maintains two subarrays in a given array.
-- The first subarray is always sorted.
-- The second subarray is unsorted.
-- In every iteration of insertion sort, an element from the unsorted subarray is picked and inserted into the sorted subarray.
+> - The insertion sort algorithm sorts an array by repeatedly inserting an element into a sorted array.
+> - The algorithm maintains two subarrays in a given array.
+> - The first subarray is always sorted.
+> - The second subarray is unsorted.
+> - In every iteration of insertion sort, an element from the unsorted subarray is picked and inserted into the sorted subarray.
+
 </details>
 
 <details>
@@ -182,7 +198,7 @@ function insertionSort(arr) {
 <details>
 <summary style="text-indent: 20px;">Use Case </summary>
 
-- **Insertion sort is an inefficient algorithm and can be practical for only small data sets**
+> - **Insertion sort is an inefficient algorithm and can be practical for only small data sets**
 
 </details>
 <details>
@@ -190,19 +206,21 @@ function insertionSort(arr) {
 
 ![Visual](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/naive_sorting_algorithms/insertion_sort/images/InsertionSort.gif)
 </details>
+
+---
+
 </details>
 
 [//]: # (New Section)
 <details>
-<summary style="text-decoration: underline;margin-top: 5px; font-size: 18px">Merge Sort  </summary>
+<summary style="text-decoration: underline;margin-top: 5px; font-size: 22px;margin-bottom: 10px">Merge Sort  </summary>
 <details>
 <summary style="text-indent: 20px;"> Overview </summary>
 
-- The merge sort algorithm is a Divide and Conquer algorithm.
-- It divides input array in two halves, calls itself for the two halves and then merges the two sorted halves.
-- The merge() function is used for merging two halves.
-- The merge(arr1, arr2) function is used to merge two halves.
-- The merge(arr1, arr2) function is used to merge two halves.
+> - The merge sort algorithm is a Divide and Conquer algorithm.
+> - It divides input array in two halves, calls itself for the two halves and then merges the two sorted halves.
+> - The merge(arr1,arr2) function is used for merging two halves recursively.
+
 
 </details>
 <details>
@@ -244,8 +262,7 @@ function mergeSort(arr) {
 <details>
 <summary style="text-indent: 20px;">Use Case </summary>
 
-- **Merge sort is an efficient algorithm and can be practical for large data sets and is a stable sorting algo**
--
+> - **Merge sort is an efficient algorithm and can be practical for large data sets and is a stable sorting algo**
 
 </details>
 <details>
@@ -253,22 +270,22 @@ function mergeSort(arr) {
 
 ![Visual](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/efficient_sorting_algorithms/merge_sort/images/MergeSort.gif)
 </details>
+
+---
+
 </details>
 
 [//]: # (New Section)
 <details>
-<summary style="text-decoration: underline;margin-top: 5px; font-size: 18px">Quick Sort  </summary>
+<summary style="text-decoration: underline;margin-top: 5px; font-size: 22px;margin-bottom: 10px">Quick Sort  </summary>
 <details>
 <summary style="text-indent: 20px;"> Overview </summary>
 
-- The quick sort algorithm is a Divide and Conquer algorithm.
-- It picks an element as pivot and partitions the given array around the picked pivot.
-- There are many different versions of quick sort.
-- Hoare's version is the original one.
-- Lomuto's version is often used.
-- The algorithm picks an element as pivot and partitions the given array around the picked pivot.
-- The partition process can be done in-place.
-- The algorithm can be implemented using recursion.
+> - It picks an element as pivot and partitions the given array around the picked pivot.
+> - Hoare's version is the original one and Lomuto's version is often used.
+> - The algorithm picks an element as pivot and partitions the given array around the picked pivot.
+> - The partition process can be done in-place.
+> - The algorithm can be implemented using recursion.
 
 </details>
 <details>
@@ -299,25 +316,29 @@ function quickSort(arr) { // O(n log n)
 <details>
 <summary style="text-indent: 20px;">Use Case </summary>
 
-- **Quick sort is an efficient algorithm and can be practical for large data sets but is not a stable sorting algo**
-- a good default choice. It tends to be fast in practice, and with some small tweaks its dreaded O(n^2)O(n2) worst-case time complexity becomes very unlikely. A tried and true favorite.
+> - **Quick sort is an efficient algorithm and can be practical for large data sets but is not a stable sorting algo**
+> - **a good default choice. It tends to be fast in practice, and with some small tweaks its dreaded O(n^2)O(n2) worst-case time complexity becomes very unlikely. A tried and true favorite.**
+
 </details>
 <details>
 <summary style="text-indent: 20px"> Visualization </summary>
 
 ![Visual](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/efficient_sorting_algorithms/quick_sort/images/QuickSort.gif)
 </details>
+
+---
+
 </details>
 
 [//]: # (New Section)
 <details>
-<summary style="text-decoration: underline;margin-top: 5px; font-size: 18px">Heap Sort  </summary>
+<summary style="text-decoration: underline;margin-top: 5px; font-size: 22px;margin-bottom: 10px">Heap Sort  </summary>
 <details>
 <summary style="text-indent: 20px;"> Overview </summary>
 
-- The heap sort algorithm is a comparison-based sorting algorithm.
-- It works by building a heap data structure from the input data and then extracts elements one by one.
-- The heap is a complete binary tree.
+> - The heap sort algorithm is a comparison-based sorting algorithm.
+> - It works by building a heap data structure from the input data and then extracts elements one by one.
+> - The heap is a complete binary tree.
 
 </details>
 <details>
@@ -340,9 +361,7 @@ function heapSort(arr) {  // O(n log n)
 <details>
 <summary style="text-indent: 20px;">Use Case </summary>
 
-- **is a good choice if you can't tolerate a worst-case time complexity of O(n^2)O(n
-2
- ) or need low space costs. The Linux kernel uses heapsort instead of quicksort for both of those reasons.**
+> - **is a good choice if you can't tolerate a worst-case time complexity of O(n^2)O(n2) or need low space costs. The Linux kernel uses heapsort instead of quicksort for both of those reasons.**
 
 </details>
 <details>
@@ -350,17 +369,20 @@ function heapSort(arr) {  // O(n log n)
 
 ![Visual](https://upload.wikimedia.org/wikipedia/commons/4/4d/Heapsort-example.gif?20110419031008)
 </details>
+
+---
+
 </details>
 
 [//]: # (New Section)
 <details>
-<summary style="text-decoration: underline;margin-top: 5px; font-size: 18px">Radix Sort  </summary>
+<summary style="text-decoration: underline;margin-top: 5px; font-size: 22px;margin-bottom: 10px">Radix Sort  </summary>
 <details>
 <summary style="text-indent: 20px;"> Overview </summary>
 
-- The radix sort algorithm is a non-comparison sort algorithm.
-- It sorts data based on the digits in the number.
-- It is a counting sort algorithm.
+> - The radix sort algorithm is a non-comparison sort algorithm.
+> - It sorts data based on the digits in the number.
+> - It is a counting sort algorithm.
 
 </details>
 <details>
@@ -389,8 +411,9 @@ function radixSort(arr) { // O(n)
 <details>
 <summary style="text-indent: 20px;">Use Case </summary>
 
-- **Radix sort is a stable sorting algorithm and can be practical for large data sets**
-- It is a good choice if you can't tolerate a worst-case time complexity of O(n^2)O(n2) or need low space costs. The Linux kernel uses heapsort instead of quicksort for both of those reasons.
+> - **Radix sort is a stable sorting algorithm and can be practical for large data sets**
+> - **It is a good choice if you can't tolerate a worst-case time complexity of O(n^2)O(n2) or need low space costs. The Linux kernel uses heapsort instead of quicksort for both of those reasons.**
+
 </details>
 </details>
 

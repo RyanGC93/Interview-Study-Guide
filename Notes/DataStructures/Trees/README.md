@@ -67,6 +67,8 @@ class TreeNode {
 <details>
 <summary>Tree Traversal</summary>
 
+### All Traversal Methods are O(n)
+
 <details>
 <summary> Tree Traversal Visualization                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </summary>
 
@@ -99,9 +101,9 @@ function bfs(root) {
 ```
 
 2. **DFS** - depth first search (Uses a stack)
-  - **Pre-order** - root, left, right
-  - **In-order** - left, root, right
-  - **Post-order** - left, right, root
+  - **Pre-order** - root, left, right >> [leetcode](https://leetcode.com/problems/binary-tree-preorder-traversal/)
+  - **In-order** - left, root, right >> [leetcode](https://leetcode.com/problems/binary-tree-inorder-traversal/)
+  - **Post-order** - left, right, root >> [leetcode](https://leetcode.com/problems/binary-tree-postorder-traversal/)
 
 ```js
 function dfs(root) {
@@ -124,7 +126,47 @@ function dfs(root) {
   return visited;
 }
 ```
+**DFS Recursive**
 
+```js
+
+/*
+! Recursive solution
+*/
+
+   
+function preOrderArrayRecur(root) { // root, left, right
+    if (!root) return [];
+
+    return [ 
+        root.val,
+        ...preOrderArrayRecur(root.left), // left
+        ...preOrderArrayRecur(root.right) 
+    ];
+}
+
+function inOrderArrayRecur(root) { // left, root, right
+    if (!root) return [];
+
+    return [ 
+        ...inOrderArrayRecur(root.left), 
+        root.val, 
+        ...inOrderArrayRecur(root.right) 
+    ];
+}
+
+function postOrderArrayRecur(root) { // left, right, root
+    if (!root) return [];
+
+    return [
+        ...postOrderArrayRecur(root.left),
+        ...postOrderArrayRecur(root.right),
+        root.val,
+    ];
+}
+
+
+```
 
 
 
