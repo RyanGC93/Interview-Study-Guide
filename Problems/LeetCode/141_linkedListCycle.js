@@ -32,16 +32,19 @@ var hasCycle = function (head) {
 // ! SOLUTION
 
 var hasCycle = function (head) {
-    if (!head || !head.next) return false;
-    let slow = head;
-    let fast = head.next;
-    while (slow !== fast) {
-        if (!fast || !fast.next) return false;
-        slow = slow.next;
-        fast = fast.next.next;
+    if (!head || !head.next) return false; // if no head or no next, no cycle
+    let slow = head; // slow pointer
+    let fast = head.next; // fast pointer
+    while (slow !== fast) { // while slow and fast are not the same
+        if (!fast || !fast.next) return false; // if fast is null or fast.next is null, no cycle
+        slow = slow.next; // move slow pointer to next
+        fast = fast.next.next; // move fast pointer to next.next
     }
-    return true;
+    return true; // if they are the same, there is a cycle
 };
+
+//! Time Complexity: O(n)
+//! Space Complexity: O(1)
 
 /*
 !EXPLANATION
