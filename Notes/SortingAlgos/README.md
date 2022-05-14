@@ -8,7 +8,7 @@
 | [Bubble Sort](./algorithms-sorting-solved/problems/01-bubble-sort.js)       | O(n^2)                | O(1)             |
 | [Selection Sort](./algorithms-sorting-solved/problems/02-selection-sort.js) | O(n^2)                | O(1)             |
 | [Insertion Sort](./algorithms-sorting-solved/problems/03-insertion-sort.js) | O(n^2)                | O(n)             |
-| [Merge Sort](./algorithms-sorting-solved/problems/04-merge-sort.js)         | O(n log n)            | O (log n)        |
+| [Merge Sort](./algorithms-sorting-solved/problems/04-merge-sort.js)         | O(n log n)            | O (n)        |
 | [Quick Sort](./algorithms-sorting-solved/problems/05-quick-sort.js)         | O(n^2)                | O (log n)        |
 | Heap Sort                                                                   | O(n log n)            | O(1)             |
 | Radix Sort                                                                  | O(n)                  | O(n)             |
@@ -19,7 +19,7 @@
 
 - [App Academy](https://open.appacademy.io/learn/js-py---sep-2020-online/week-7-sep-2020-online/selection-sort-code-breakdown)
 - [Cheat Sheet](https://www.interviewcake.com/sorting-algorithm-cheat-sheet)
-- [ Practice Problems Repo] (https://github.com/appacademy-starters/algorithms-sorting-starter)
+- [Practice Problems Repo](https://github.com/appacademy-starters/algorithms-sorting-starter)
 
 - [ Visualization ](https://visualgo.net/en/sorting?slide=1)
 </details>
@@ -282,10 +282,8 @@ function mergeSort(arr) {
 <summary style="text-indent: 20px;"> Overview </summary>
 
 > - It picks an element as pivot and partitions the given array around the picked pivot.
+> - The partition process can be done in-place and can be implemented using recursion.
 > - Hoare's version is the original one and Lomuto's version is often used.
-> - The algorithm picks an element as pivot and partitions the given array around the picked pivot.
-> - The partition process can be done in-place.
-> - The algorithm can be implemented using recursion.
 
 </details>
 <details>
@@ -380,9 +378,7 @@ function heapSort(arr) {  // O(n log n)
 <details>
 <summary style="text-indent: 20px;"> Overview </summary>
 
-> - The radix sort algorithm is a non-comparison sort algorithm.
-> - It sorts data based on the digits in the number.
-> - It is a counting sort algorithm.
+> - The radix sort algorithm is a non-comparison sort algorithm that sorts data based on the digits in the number.
 
 </details>
 <details>
@@ -438,12 +434,21 @@ function radixSort(arr) { // O(n)
 <details>
 <summary style="text-decoration: underline;margin-top: 5px; font-size: 22px;margin-bottom: 10px"> Binary Search </summary>
 
+> A searching Algo used in a sorted array by repeatedly dividing the search interval in half
+
+> **Binary Search Algorithm Steps:** 
+> *   Begin with an interval covering the whole array.
+> *   If the value of the search key is less than the item in the middle of the interval, narrow the interval to the lower half.
+> *   Otherwise, narrow it to the upper half.
+> *   Repeatedly check until the value is found or the interval is empty.
+
 > - Time Complexity: O(log n), possible implementation of O(1)
 > - Space complexity: O(n)
 
 
 **CODE**
-```js // Returns simply true/false for presence
+```js 
+// Returns simply true/false for presence
 function binarySearch(array, target) {
 if (array.length === 0) {
     return false;
