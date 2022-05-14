@@ -9,20 +9,62 @@ pairs for a **directed graph**.
 
 
 ### Graph Representation
-- Adjacency List
-  - A list of nodes that are connected to each other.
-  - Each node has a list of edges that connect to it.
-  - Each edge has a node that it connects to.
-- Adjacency Matrix
+
+<details>
+<summary>Adjacency Matrix</summary>
+
+
   - A 2D array of nodes that are connected to each other.
   - Each node has a list of edges that connect to it.
   - Each edge has a node that it connects to.
+
+
+```javascript
+let matrix = [
+/*          A       B       C       D       E       F   */
+/*A*/    [true,  true,   true,   false,  true,   false],
+/*B*/    [false, true,   false,  false,  false,  false],
+/*C*/    [false, true,   true,   true,   false,  false],
+/*D*/    [false, false,  false,  true,   false,  false],
+/*E*/    [true,  false,  false,  false,  true,   false],
+/*F*/    [false, false,  false,  false,  true,   true]
+];
+```
+
+</details>
+<details>
+<summary> Adjacency List </summary> 
+
+  - A list of nodes that are connected to each other.
+  - Each node has a list of edges that connect to it.
+  - Each edge has a node that it connects to.
+
+```javascript
+  let list = {
+    a: ['b', 'c', 'e'],
+    b: [],
+    c: ['b', 'd'],
+    d: [],
+    e: ['a'],
+    f: ['e']
+  };
+  ```
+
+</details>
+<details> 
+<summary> Comparison</summary> 
+
 
 | Adjacency List  | Adjacency List  |
 |---|---|
 | Can take up less space (in sparse graphs)  | Takes up more space (in sparse graphs)  |
 | Faster to iterate over all edges  | Slower To iterate over all edges  |
 | Can be slower to lookup specific edge  | Faster to lookup specific edge  |
+
+</details>
+
+---
+
 ### Node Class Representation
 
 <details>
@@ -44,10 +86,10 @@ class GraphNode {
 ```
 
 </details>
-## Class Representation (adjacent list)
+
 
 <details>
-<summary>Class Representation Code</summary>
+<summary>Graph Class Representation </summary>
 
   ```js
   class Graph {
@@ -125,8 +167,7 @@ class GraphNode {
     if (visited.has(startingVertex)) return;
     visited.add(startingVertex);
     vertices.push(startingVertex);
-    for (let neighbor of this.adjList[startingVertex]) {
-      // for each neighbor of the starting vertex
+    for (let neighbor of this.adjList[startingVertex]) { // for each neighbor of the starting vertex
       this.depthFirstTraversalRecursive(neighbor, visited, vertices); // recursively call depthFirstTraversalRecursive on the neighbor
     }
     return vertices;
@@ -136,12 +177,6 @@ class GraphNode {
   ```
 </details>
 
-
-
-
-<br>
-<br>
-<br>
 
 ### Adjacency List
 
@@ -218,32 +253,51 @@ class Graph {
 
 </details>
 
+
+---
+
 ## Graph Traversal
+
+---
+
+<details>
+<summary>Graph Traversal Overview</summary>
+
+- We can use recursion or iteration to traverse each node.
+- We generally want to keep track of each node that we've visited already so that we don't get trapped in cycles. Easiest way to do this is to keep a Set variable that we update as we traverse to each node.
+- The projects from W08D03 and their solutions are a great resource here.
+  - Be comfortable with taking either an iterative or a recursive approach to traversing a graph, as well as being able to work with either an adjacency list (like in the friendsOf problem) or a node class (like in the breadthFirstSearch or maxValue problems).
+  - Practice taking the implementation that you did in the project and converting it to a different implementation. You probably used recursion for friendsOf, so try using iteration with a stack array, etc.
+- THE INTENTION OF ALL OF THESE CODE BLOCKS IS NOT TO MEMORIZE THEM! You should be comfortable with reasoning out why we are implementing them differently.
+  - The main difference between a node implementation and an adjacency list is that we are accessing the node's `neighbors` attribute just like we are accessing the values on the list (ie, with an adjacency list saved to a `graph` variable, `graph[node]` gives all of `node`'s neighbors).
+  - The main difference between a depth-first and breadth-first is utilizing a stack vs a queue.
+  - etc.
+- Some possible example implementations:
+- Using a node implementation with recursion:
+
+</details
+
+
+
 
 ### Graph Traversal w/ GraphNode
 
 <details>
 <summary>Graph Traversal w/ GraphNode Code</summary>
 
-
+### Recursion Depth First Search
 ---
 
 ```js
-// using GraphNode representation
-
 function depthFirstRecur(node, visited=new Set()) {
-    // if this node has already been visited, then return early
-    if (visited.has(node.val)) return;
+  if (visited.has(node.val)) return; // if this node has already been visited, then return early
 
-    // otherwise it hasn't yet been visited,
-    // so print it's val and mark it as visited.
-    console.log(node.val);
-    visited.add(node.val);
+  console.log(node.val);// otherwise it hasn't yet been visited,
+  visited.add(node.val);// so print it's val and mark it as visited.
 
-    // then explore each of its neighbors
-    node.neighbors.forEach(neighbor => {
-        depthFirstRecur(neighbor, visited);
-    });
+  node.neighbors.forEach(neighbor => { // for each neighbor of this node
+      depthFirstRecur(neighbor, visited);
+  });
 }
 
 depthFirstRecur(f);
@@ -260,16 +314,12 @@ function depthFirstIter(node) {
     while (stack.length) {
         let node = stack.pop();
 
-        // if this node has already been visited, then skip this node
-        if (visited.has(node.val)) continue;
+        if (visited.has(node.val)) continue;  // if this node has already been visited, then skip this node
 
-        // otherwise it hasn't yet been visited,
-        // so print it's val and mark it as visited.
-        console.log(node.val);
-        visited.add(node.val);
+        console.log(node.val); // otherwise it hasn't yet been visited,
+        visited.add(node.val); // so print it's val and mark it as visited.
 
-        // then add its neighbors to the stack to be explored
-        stack.push(...node.neighbors);
+        stack.push(...node.neighbors); // then add its neighbors to the stack to be explored
     }
 }
 
@@ -283,21 +333,9 @@ depthFirstIter(f);
 
 # Graph Traversal w/ Adjacency List
 
-
+- Using an adjacency list with Recursion:
   
 ```js
-  // using Adjacency List representation
-
-function depthFirstRecur(node, graph, visited=new Set()) {
-    if (visited.has(node)) return;
-    visited.add(node);
-    graph[node].forEach(neighbor => {
-        depthFirstRecur(neighbor, graph, visited);
-    });
-}
-
-// Refactored
-
 function depthFirst(graph) {
     let visited = new Set();
 
@@ -316,4 +354,38 @@ function _depthFirstRecur(node, graph, visited) {
         _depthFirstRecur(neighbor, graph, visited);
     });
 }
+```
 
+- Using an adjacency list with iteration:
+
+```js
+// With starting node, not exploring all nodes, only the connected ones
+function depthFirstIter(graph, startNode) {
+  let stack = [startNode];
+  let visited = new Set();
+
+  while (stack.length > 0) {
+    let node = stack.pop();
+    if (visited.has(node)) continue;
+    console.log(node)
+    visited.add(node);
+    stack.push(...graph[node]);
+  }
+}
+
+// Exploring all nodes, even unconnected ones.
+function depthFirstIter(graph) {
+  let visited = new Set();
+
+  for (let startNode in graph) {
+    let stack = [startNode];
+    while (stack.length > 0) {
+      let node = stack.pop();
+      if (visited.has(node)) continue;
+      console.log(node)
+      visited.add(node);
+      stack.push(...graph[node]);
+    }
+  }
+}
+```

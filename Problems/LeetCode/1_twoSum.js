@@ -20,14 +20,16 @@ Output: [0,1]
 
 */
 
-var twoSum = function (nums, target) {
-    let dict = {}
-
-    for (let i = 0; i < nums.length; i++){
-        let curr = nums[i];
-        if (dict[target - curr]) {
-            return [dict[target - curr],i]
+var twoSum = function(nums, target) {
+    let hash = {};
+    for (let i = 0; i < nums.length; i++) {
+        let complement = target - nums[i];  // find the complement 
+        if (hash[complement] !== undefined) { // if complement is in the hash, we return the index of the complement and the current index
+            return [hash[complement], i];
         }
-        dict[curr] = i
+        hash[nums[i]] = i; // if not, we add it to the hash
     }
 }
+
+// Time Complexity: O(n)
+// Space Complexity: O(n)
