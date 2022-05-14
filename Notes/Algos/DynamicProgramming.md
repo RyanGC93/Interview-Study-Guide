@@ -10,17 +10,16 @@
 ## Memoization
 
 <details>
-<summary>Overview</summary>
+<summary >Overview</summary>
 
-### Overview
 
-- Memoization is a technique to solve a problem in a way that can be used to solve the same problem in the future.
-- There are two features that compromise memoization:
-  - the function is recursive
-  - the additional data is stored in a memo object
-- Performance
-  - Time complexity >> **O(n)**
-  - Space complexity >> **O(n)**
+>- Memoization is a technique to solve a problem in a way that can be used to solve the same problem in the future.
+> - There are two features that compromise memoization:
+  > - the function is recursive
+  > - the additional data is stored in a memo object
+> - Performance
+  > - Time complexity >> **O(n)**
+  > - Space complexity >> **O(n)**
 
 </details>
 
@@ -28,17 +27,16 @@
 <details>
 <summary> Main Features </summary>
 
-### Memoization Main Features
 
-- The function is recursive
-- the additional data is stored in a memo(an object)
+> - The function is recursive
+> - the additional data is stored in a memo(an object)
 
 </details>
 
 <details>
-<summary> Memoization Formula </summary>
+<summary> Memoization Formula O(N) </summary>
 
-## The memoization formula
+
 
 Now that you understand memoization, when should you apply it? Memoization is useful when attacking recursive problems that have many overlapping sub-problems. You'll find it most useful to draw out the visual tree first. If you notice duplicate sub-trees, time to memoize. Here are the hard and fast rules you can use to memoize a slow function:
 
@@ -55,10 +53,6 @@ Now that you understand memoization, when should you apply it? Memoization is us
 <details>
 <summary> Overview </summary>
 
-
-
-### Overview
-
 - Tabulation is a technique to solve a problem in a way that can be used to solve the same problem in the future.
 - There are two features that compromise tabulation:
   - the function is not recursive and iterative
@@ -74,8 +68,6 @@ Now that you understand memoization, when should you apply it? Memoization is us
 <details>
 <summary> Main Features </summary>
 
-### Tabulation Main Features
-
 - The function is not recursive and iterative
 - the additional data is stored in a table(typically a 2D array)
 
@@ -83,8 +75,6 @@ Now that you understand memoization, when should you apply it? Memoization is us
 
 <details>
 <summary> Tabulation Formula </summary>
-
-### The Tabulation Formula
 
 Here are the general guidelines for implementing the tabulation strategy. This is just a general recipe, so adjust for taste depending on your problem:
 
