@@ -3,8 +3,7 @@
 *This is a guide to help you prepare for the Javascript interview.*
 
 ---
-
-This guide is compiled notes from my preparation for interviews and consists of these sections:
+## Sections
 
 - 1 ) [Data Structures](./DataStructures/README.md)
 - 2 ) [Algorithms and Big O]()
@@ -12,3 +11,18 @@ This guide is compiled notes from my preparation for interviews and consists of 
 - 4 ) [Notes From Cracking The Coding Interview](./Cracking_The_Coding_Interview/README.md)
 - 5 ) [Interview Process Notes](./InterviewProcess/README.md)
 - 6 ) [Sorting Algorithims](./SortingAlgos/README.md)
+
+## Resources
+<details>
+     <summary> Anki </summary>
+
+- Anki is a flashcard application that allows you to study for your interview.
+- [Flashcards](./FlashCards/README.md)
+
+</details>
+<details>
+     <summary> Practice Problems </summary>
+
+        Anki
+
+</details>
