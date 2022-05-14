@@ -133,7 +133,7 @@ function selectionSort(arr) {
           min = j; // set the minimum value to the current index
         }
       }
-      if (min !== i) { // if the minimum value is not the current index
+      if (min !== i) { // if the minimum value is not the current index  // This can also be implemented by as a swap function
         let temp = arr[i]; // set the temp value to the current index
         arr[i] = arr[min]; // set the current index to the minimum value
         arr[min] = temp; // set the minimum value to the temp value
