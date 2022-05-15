@@ -1,20 +1,10 @@
-# Graph
-## Definition 
-
-- A graph is a set of nodes and edges together with a set of unordered pairs of these vertices for an **undirected graph** or a set of ordered 
+Graph Definition,"- A graph is a set of nodes and edges together with a set of unordered pairs of these vertices for an **undirected graph** or a set of ordered 
 pairs for a **directed graph**.
   - It may or may not have cycles.
   - like a tree, it may or may not have a root.
   - have any number of edges leading from one node to another.
-
-<br></br>
-
-## Graph Representation
-
-<details>
-<summary style="margin-bottom:8px">Adjacency Matrix</summary>
-
-  - A 2D array of nodes that are connected to each other.
+"
+Graph Representation - Adjacency List,"  - A 2D array of nodes that are connected to each other.
   - Each node has a list of edges that connect to it.
   - Each edge has a node that it connects to.
 
@@ -28,13 +18,8 @@ let matrix = [
 /*E*/    [true,  false,  false,  false,  true,   false],
 /*F*/    [false, false,  false,  false,  true,   true]
 ];
-```
-
-</details>
-<details>
-<summary style="margin-bottom:8px"> Adjacency List </summary> 
-
-  - A list of nodes that are connected to each other.
+```"
+Graph Representation - Adjacency Matrix,"  - A list of nodes that are connected to each other.
   - Each node has a list of edges that connect to it.
   - Each edge has a node that it connects to.
 
@@ -47,28 +32,13 @@ let matrix = [
     e: ['a'],
     f: ['e']
   };
-  ```
-
-</details>
-<details> 
-<summary style="margin-bottom:8px"> Comparison</summary> 
-
-| Adjacency List  | Adjacency List  |
+  ```"
+Comparison between Adjacency Matrix vs Adjaceny List,"| Adjacency List  | Adjacency List  |
 |---|---|
 | Can take up less space (in sparse graphs)  | Takes up more space (in sparse graphs)  |
 | Faster to iterate over all edges  | Slower To iterate over all edges  |
-| Can be slower to lookup specific edge  | Faster to lookup specific edge  |
-
-</details>
-
----
-<br></br>
-
-## Class Representation
-
-<details>
-<summary style="margin-bottom:8px">Graph Node Class Representation</summary>
-
+| Can be slower to lookup specific edge  | Faster to lookup specific edge  |"
+Graph Node Class,"
 ```js
 class GraphNode {
   constructor(value) {
@@ -76,12 +46,10 @@ class GraphNode {
     this.edges = [];
   }
 }
-```
-
-</details>
-
+```"
+Graph - Adjacency List,"
 <details>
-<summary style="margin-bottom:8px">Adjacency List Class Representation </summary>
+<summary style=""margin-bottom:8px"">Adjacency List Class Representation </summary>
 
   ```js
   class Graph {
@@ -170,7 +138,7 @@ class GraphNode {
 </details>
 
 <details>
-<summary style="margin-bottom:8px">Adjacency List Class Representation 2</summary>
+<summary style=""margin-bottom:8px"">Adjacency List Class Representation 2</summary>
 
 ```js
 class Graph {
@@ -197,10 +165,10 @@ class Graph {
 }
 ```
 
-</details>
-
+</details>"
+Graph - Adjacency Matrix,"
 <details>
-<summary style="margin-bottom:8px">Adjacency Matrix Class Representation</summary>
+<summary style=""margin-bottom:8px"">Adjacency Matrix Class Representation</summary>
 
 ```js
 class Graph {
@@ -238,15 +206,9 @@ class Graph {
 }
 ```
 
-</details>
-
----
-<br></br>
-
-## Traversing a graph
-
-<details>
-<summary style="margin-bottom:8px" style="text-indent: 20px; font-size:18px;margin-bottom:6px">Traversing with a <b>Node</b> implementation</summary>
+</details>"
+Graph Traversal - Node Implementation,"<details>
+<summary style=""margin-bottom:8px"" style=""text-indent: 20px; font-size:18px;margin-bottom:6px"">Traversing with a <b>Node</b> implementation</summary>
 
 #### Using a node implementation with recursion:
 
@@ -288,10 +250,10 @@ function depthFirstIter(node) {
 depthFirstIter(f);
 ```
 
-</details>
-
+</details>"
+Graph Traversal - Adjacency List Implementation,"
 <details>
-<summary style="margin-bottom:8px" style="text-indent: 20px; font-size:18px;margin-bottom:6px">Traversing with a <b>Adjacency List</b> implementation</summary>
+<summary style=""margin-bottom:8px"" style=""text-indent: 20px; font-size:18px;margin-bottom:6px"">Traversing with a <b>Adjacency List</b> implementation</summary>
 
 ## Adjacency List
   - One advantage of an adjacency list is that, since we have a reference to the whole graph, we can access nodes that aren't connected to our starting point. This may or may not be desired, so we can implement our functions differently to account for this feature.
@@ -354,6 +316,4 @@ function depthFirstIter(graph) { // Exploring all nodes, even unconnected ones.
 }
 ```
 
-</details>
-
----
+</details>"
