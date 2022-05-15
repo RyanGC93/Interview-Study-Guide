@@ -2,13 +2,19 @@
 ----
 
 <details>
-<summary>Common Patterns</summary>
+<summary>Overview</summary>
 
+**Common Patterns**
 - [Frequency Counter]()
 - [Multiple Pointers]()
+- [Fast and Slow Pointers]()
 - [Sliding Window]()
 - [Divide And Conquer]()
 - [Greedy Algorithms]() 
+- [Backtracking]()
+
+**Resources**
+1. [14 Interview Coding Patterns](https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed)
 
 </details>
 
@@ -286,7 +292,7 @@ function search(arr, num){
 <summary>Overview</summary>
 
 The algorithms can be used if they satisfy the following conditions:
-1. Greedy Choice Prooperty - The algorithm will always choose the best option available at each step.
+1. Greedy Choice Property - The algorithm will always choose the best option available at each step.
 2. Optimal Substructure Property - The algorithm will always choose the best option available at each step.
 
 Advantages:
