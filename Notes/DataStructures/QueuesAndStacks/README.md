@@ -1,18 +1,9 @@
 # Stack and Queues
 
 <details>
-    <summary> Resources </summary>
-
--    [Stacks and Queues Quizlet](https://quizlet.com/696951392/stack-and-queues-flash-cards/)
-  
-</details>
-
-
-<details>
 <summary>Stack and Queue Properties</summary>
 
 <br>
-
 
 Stacks and Queues are so similar in composition that we can discuss their properties together. They track the following three properties:
 
@@ -75,8 +66,7 @@ Stacks and Queues are so similar in composition that we can discuss their proper
 
 <br>
 
-----------------------------------
-
+---
 | Data Structure Operation | Time Complexity (Avg) | Time Complexity (Worst) | Space Complexity (Worst) |
 | --- | --- | --- | --- |
 | Access | `Θ(n)` | `O(n)` | `O(n)` |
