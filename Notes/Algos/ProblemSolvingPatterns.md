@@ -1,5 +1,4 @@
 # Problem Solving Patterns
-----
 
 <details>
 <summary>Overview</summary>
@@ -25,9 +24,10 @@
 
 - This pattern uses objects or sets to collect values and their frequencies.
 - This can often avoid the need for nested loops or O(n^2) runtime with arrays/strings.
+- This pattern is useful for finding the most common value in an array or string.
 
 </details>
-<br>
+
 <details>
 <summary style="text-decoration: underline;">Code</summary>
 
@@ -59,7 +59,6 @@ same([1,2,3,2], [9,1,4,4])
 <summary style="text-indent: 20px;">Refactored</summary>
 
 ```js
-
 function same(arr1, arr2){
     if(arr1.length !== arr2.length){
         return false;
@@ -89,9 +88,10 @@ same([1,2,3,2,5], [9,1,4,4,11])
 
 ```
 
+</details>
+</details>
 
-</details>
-</details>
+---
 
 ### Multiple Pointers
 
@@ -99,14 +99,12 @@ same([1,2,3,2,5], [9,1,4,4,11])
 <summary>Overview</summary>
 
 - creating pointers or values that correspond to the index of the array or position and move towards the beginning,middle, or end of the array.
-- Very efficient for soving provlems with minimal space complexity.
+- Very efficient for solving problems with minimal space complexity.
+- **Big O:** Time Complexity **O(n)**, Space Complexity **O(1)**
 
 </details>
-<br>
 <details>
 <summary style="text-decoration: underline;">Code</summary>
-
-
 
 <details>
 <summary style="text-indent: 20px;">Naive Approach</summary>
@@ -147,9 +145,10 @@ function sumZero(arr) {
 }
 ```
 
+</details>
+</details>
 
-</details>
-</details>
+---
 
 ## Sliding Window
 
@@ -160,13 +159,34 @@ function sumZero(arr) {
 - Depending on the problem, the window may or may not need to be moved.
 - Very useful for keeping track of a subset of data in an array.
 
+
+[Article](https://medium.com/@timpark0807/leetcode-is-easy-sliding-window-c44c11cc33e1)
 </details>
-<br>
+<details>
+<summary style="text-decoration: underline;">General Parts</summary>
+
+3 Key Steps
+-----------
+
+The Sliding Window boils down to 3 key steps.
+
+1.  Expand our window
+2.  Meet the condition and process the window
+3.  Contract our window
+
+3 Key Variables
+-----------
+
+The Sliding Window boils down to 3 key steps.
+
+1.  Window Bounds
+2.  Track Condition
+3.  Return Value
+
+</details>
 
 <details>
 <summary style="text-decoration: underline;">Code</summary>
-
-
 
 <details>
 <summary style="text-indent: 20px;">Naive Approach</summary>
@@ -190,9 +210,6 @@ function maxSubarraySum(arr, num) {
 }
 
 maxSubarraySum([2,6,9,2,1,8,5,6,3],3)
-
-
-
 ```
 
 </details>
@@ -201,7 +218,6 @@ maxSubarraySum([2,6,9,2,1,8,5,6,3],3)
 <summary style="text-indent: 20px;">Refactored</summary>
 
 ```js
-
 function maxSubarraySum(arr, num){
   let maxSum = 0;
   let tempSum = 0;
@@ -218,13 +234,12 @@ function maxSubarraySum(arr, num){
 }
 
 maxSubarraySum([2,6,9,2,1,8,5,6,3],3)
-
-
 ```
 
+</details>
+</details>
 
-</details>
-</details>
+---
 
 ### Divide And Conquer
 
@@ -234,12 +249,22 @@ maxSubarraySum([2,6,9,2,1,8,5,6,3],3)
 - This pattern involves breaking down a problem into smaller subproblems and solving each subproblem recursively.
 - This pattern can tremendously decrease the runtime of a problem.
   
+[Divide And Conquer](https://medium.com/swlh/divide-and-conquer-6d18386a31d)
+
+The Divide and Conquer technique can be understood as three parts :
+
+1.  **Divide —**Dividing the problem into sub-problems
+2.  **Conquer —** Conquering the sub-problems by solving them recursively.
+3.  **Combine —** Combining all the solutions to sub-problems and merging them into solution of our original problem.
+
+Examples:
+- Merge Sort
+- Binary Search
+- Quick Sort
+
 </details>
-<br>
 <details>
 <summary style="text-decoration: underline;">Code</summary>
-
-
 
 <details>
 <summary style="text-indent: 20px;">Naive Approach</summary>
@@ -281,10 +306,10 @@ function search(arr, num){
 // Time Complexity: O(log n)
 ```
 
-
+</details>
 </details>
 
-</details>
+---
 
 ### Greedy Algorithms
 
@@ -300,11 +325,8 @@ Advantages:
 - This algorithm can be faster than other algorithms
   
 </details>
-<br>
 <details>
 <summary style="text-decoration: underline;">Code</summary>
-
-
 
 <details>
 <summary style="text-indent: 20px;">Example</summary>
@@ -359,5 +381,4 @@ FindingChange(bills, testMoney);
 ```
 
 </details>
-
 </details>

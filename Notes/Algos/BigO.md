@@ -190,3 +190,32 @@ function factorial(n) {
 | Heap Sort  | O(n log n)  |  O(1) |
 | Radix Sort  | O(n)  | O(n)  |
 </details>
+
+<details>
+<summary style="">Big O of Object Methods</summary>
+
+- Object.keys- 0(N)
+- Object.va|ues- 0(N)
+- Object.entries- 0(N)
+
+</details>
+
+<details>
+<summary style="">Big O of Array Operations</summary>
+
+
+## O(N)
+> | shift | unshift  | concat | slice | splice  | forEach/map/filter/reduce/etc. |
+> |-------|----------|--------|-------|---------|--------------------------------|
+
+## O(1)
+
+| push | pop |
+|---|---|
+
+
+## O(N log N)
+- sort
+
+</details>
+
