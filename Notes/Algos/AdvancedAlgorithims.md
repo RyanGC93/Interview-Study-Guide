@@ -14,10 +14,9 @@ Algorithims that covered are;
 2. Once we moved to the node were going to visit, we look at each node and see if it is the shortest path to that node.
 3. If it is, we update the shortest path to that node.
 
-A simple Priotiy Queue
+A simple Priority Queue
 
 ```js
-
 class PriorityQueue {
     constructor() {
         this.values = [];
@@ -34,13 +33,11 @@ class PriorityQueue {
     }
  } // Note we are sorting in O(n log n) time.
 
-
 ```
 
 </details>
 
-## Dijistra's Algorithm
-
+## Dijkstra's Algorithm
 
 <details>
 <summary>Pseudo Code</summary>
@@ -64,7 +61,6 @@ class PriorityQueue {
 
 <details>
 <summary>Code</summary>
-
 
 ```js
 class PriorityQueue {
@@ -234,8 +230,6 @@ class PriorityQueue {
         }
     }
 }
-
-
 ```
 
 </details>
