@@ -1,16 +1,14 @@
-# Heap
+# Hash
 
 Overview:
 - Hash tables are used to store key-value pairs.
-
-Hashing function:
 
 What Makes a Hash Table Good?
 - Hash tables are fast to search.
 - Doesn't cluster outputs at specific indices but rather clusters them in buckets.
 - Deterministic.(Same input always returns same output)
 
-
+```js
 function hash(key, arrayLen) {
   let total = 0;
   let WEIRD_PRIME = 31;
@@ -22,6 +20,8 @@ function hash(key, arrayLen) {
   return total;
 }
 
+```
+
 Dealing with collisions:
 - Linear probing.
   - With linear probing, when a collision occurs, the next available slot is used.
@@ -31,7 +31,6 @@ Dealing with collisions:
 # Hash Table Class Implementation
 
 ```js
-
 class HashTable {
   constructor(size=53){
     this.keyMap = new Array(size);
@@ -95,10 +94,9 @@ class HashTable {
 
 ```
 
-# Time Complexity
+# Time and Space Complexity
 
-(average case)
-    - Insert: O(1)
-    - Delete: O(1)
-    - Access: O(1)
-  
+| Data Structure | Access (avg) | Search (avg) | Insertion (avg) | Deletion | Access (worst) | Search (worst) | Insertion (worst) | Deletion (worst) | Space Complexity (worst) |
+|------|--------------|--------------|-----------------|----------|----------------|----------------|-------------------|------------------|--------------------------|
+| Hash | N/A          | Θ(1)         | Θ(1)            | Θ(1)     | N/A            | O(n)           | O(n)              | O(n)             | O(n)                     |
+

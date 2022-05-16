@@ -1,7 +1,11 @@
+# Heap
 
-## Heap
+<details>
+<summary>Illustration</summary>
 
 ![](https://media.geeksforgeeks.org/wp-content/cdn-uploads/MinHeapAndMaxHeap.png)
+</details>
+
 ### Definition
 
 - A heap is a tree where the value of each node is greater than or equal to the values of its children
@@ -19,7 +23,11 @@ A Binary Heap is a Complete Binary Tree. A binary heap is typically represented 
 
   The traversal method use to achieve Array representation is **Level Order**
 
+<details>
+<summary>Illyustration</summary>
+
 ![](https://www.geeksforgeeks.org/wp-content/uploads/binaryheap.png)
+</details>
 
 ### Methods or Operations of Heap
 
@@ -38,7 +46,18 @@ Apart from these basic operations, there are other operations such as:
 
 So in order to fill the Nth level, (N-1) levels should be completely filled first and the filling of nodes in the Nth level should take place from left to right.
 
-### Time Complexity Analysis
+# Time Complexity of a Heap
+
+- Access O log n
+- Insert  O log n 
+- Search O log n
+- Delete O log n
+- Extraction(min/max): O(1)
+
+*But can vary by implementation*
+
+<details>
+<summary>Explanation </summary>
 
 - Insertion: O(log n)
 > If a node is to be inserted at a level of height H:
@@ -72,7 +91,9 @@ So in order to fill the Nth level, (N-1) levels should be completely filled firs
 - Extraction(min/max): O(1)
 > In order to obtain the minimum value just return the value of the root node (which is the smallest element in Min Heap), So simply return the element at index 0 of the array.
 
-# Prioprity Queue
+</details>
+
+# Priority Queue Code Implementat
 
 <details>
 <summary>Definition</summary>

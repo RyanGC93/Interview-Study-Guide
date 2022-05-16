@@ -8,18 +8,23 @@
 > Most of the BST operations (e.g., search, max, min, insert, delete.. etc) take O(h) time where h is the height of the BST. The cost of these operations may become O(n) for a skewed Binary tree. If we make sure that height of the tree remains O(Logn) after every insertion and deletion, then we can guarantee an upper bound of O(Logn) for all these operations. The height of an AVL tree is always O(Logn) where n is the number of nodes in the tree
 
 **Insertion**  
-To make sure that the given tree remains AVL after every insertion, we must augment the standard BST insert operation to perform some re-balancing. Following are two basic operations that can be performed to re-balance a BST without violating the BST property (keys(left) < key(root) < keys(right)).  
+- To make sure that the given tree remains AVL after every insertion, we must augment the standard BST insert operation to perform some re-balancing. 
+- Following are two basic operations that can be performed to re-balance a BST without violating the BST property (keys(left) < key(root) < keys(right)).  
+
 1) Left Rotation  
 2) Right Rotation
 
 T1, T2 and T3 are subtrees of the tree 
 rooted with y (on the left side) or x (on 
-the right side)           
+the right side)      
+```
+
      y                               x
     / \\     Right Rotation          /  \\
    x   T3   - - - - - - - >        T1   y 
   / \\       < - - - - - - -            / \\
  T1  T2     Left Rotation            T2  T3
+ ```
 Keys in both of the above trees follow the 
 following order 
  keys(T1) < key(x) < keys(T2) < key(y) < keys(T3)
@@ -200,7 +205,21 @@ Following is the implementation for AVL Tree Insertion. The following implementa
 </script>
 ```
 
+
+
+# Time Complexity:
+- **Rotation Operations**  are constant time.
+- Time complexity of **insert*** **is O(Logn)**
+
+<details>
+<summary>Source Code</summary>
+
 **Time Complexity:** The rotation operations (left and right rotate) take constant time as only a few pointers are being changed there. Updating the height and getting the balance factor also takes constant time. So the time complexity of AVL insert remains same as BST insert which is O(h) where h is the height of the tree. Since AVL tree is balanced, the height is O(Logn). So time complexity of AVL insert is O(Logn).  
 
+</details>
+
 **Comparison with Red Black Tree**  
-The AVL tree and other self-balancing search trees like Red Black are useful to get all basic operations done in O(log n) time. The AVL trees are more balanced compared to Red-Black Trees, but they may cause more rotations during insertion and deletion. So if your application involves many frequent insertions and deletions, then Red Black trees should be preferred. And if the insertions and deletions are less frequent and search is the more frequent operation, then AVL tree should be preferred over [Red Black Tree](https://www.geeksforgeeks.org/red-black-tree-set-1-introduction-2/).
+- The AVL tree and other self-balancing search trees like Red Black are useful to get all basic operations done in O(log n) time. 
+- The AVL trees are more balanced compared to Red-Black Trees, but they may cause more rotations during insertion and deletion. 
+	- So if your application involves many frequent insertions and deletions, then Red Black trees should be preferred.
+	- And if the insertions and deletions are less frequent and search is the more frequent operation, then AVL tree should be preferred over [Red Black Tree](https://www.geeksforgeeks.org/red-black-tree-set-1-introduction-2/).

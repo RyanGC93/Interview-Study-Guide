@@ -173,6 +173,8 @@ function factorial(n) {
 |Binary Search Tree|O(n)|O(n)|O(n)|O(n)|O(n)|
 |Hash|N/A|O(n)|O(n)|O(n)|O(n)|
 
+*Hash Tables, Binary Search have a better average access,search,assertion, and deletion at O(log (n))
+
 </details>
 
 <details>

@@ -6,7 +6,6 @@
 First of all, a tree is a graph with no cycles.
   - A graph is a set of nodes and edges.
 
-
 </details>
 
 <details>
@@ -23,7 +22,6 @@ First of all, a tree is a graph with no cycles.
 
 </details>
 
-
 <details>
 <summary>Node Representation</summary>
 
@@ -39,7 +37,6 @@ class TreeNode {
 }
 ```
 </details>
-
 
 <details>
 <summary>Basic Tree Terminology</summary>
@@ -76,10 +73,10 @@ class TreeNode {
 
 </details>
 
-1. **BFS** - breadth first search (Uses a queue)
+1. **BFS** - Breadth First Search (Uses a queue)
 
 ```js
-function bfs(root) {
+function bfs(root) { // Iterative
   const queue = [root];
   const visited = [];
 
@@ -100,41 +97,70 @@ function bfs(root) {
 }
 ```
 
-2. **DFS** - depth first search (Uses a stack)
+2. **DFS** - Depth First Search (Uses a stack)
   - **Pre-order** - root, left, right >> [leetcode](https://leetcode.com/problems/binary-tree-preorder-traversal/)
   - **In-order** - left, root, right >> [leetcode](https://leetcode.com/problems/binary-tree-inorder-traversal/)
   - **Post-order** - left, right, root >> [leetcode](https://leetcode.com/problems/binary-tree-postorder-traversal/)
 
-```js
-function dfs(root) {
-  const stack = [root];
-  const visited = [];
+**DFS Iterative**
 
+```js
+ffunction preOrderArrayIter(root) { // Preorder traversal => root, left, right
+  if (!root) return []; // base case
+  const result = [];
+  const stack = [root];
+  while (stack.length) {
+    const node = stack.pop(); // pop the last element
+    result.push(node.val);  // push the value 1) visit root
+    if (node.right) {
+      stack.push(node.right); // push the right child
+    }
+    if (node.left) {
+      stack.push(node.left); // push the left child
+    }
+  }
+  return result;
+}
+
+function inOrderArrayIter(root) { // Inorder traversal => left, root, right
+  if (!root) return [];
+  const result = [];
+  const stack = [];
+  let current = root;
+  while (stack.length || current) { // while the stack is not empty or the current node is not null
+    if (current) { // if the current node is not null
+      stack.push(current); // push the current node to the stack
+      current = current.left; // set the current node to the left child
+    } else {
+      current = stack.pop();  // set the current node to the last element in the stack
+      result.push(current.val); // push the value of the current node to the result
+      current = current.right; // set the current node to the right child
+    }
+  }
+  return result; // return the result
+}
+
+function postOrderArrayIter(root) { // Postorder traversal => left, right, root
+  if (!root) return [];
+  const result = [];
+  const stack = [root];
   while (stack.length) {
     const node = stack.pop();
-    visited.push(node);
-
-    if (node.right) {
-      stack.push(node.right);
-    }
-
+    result.push(node.val);
     if (node.left) {
       stack.push(node.left);
     }
+    if (node.right) {
+      stack.push(node.right);
+    }
   }
-
-  return visited;
+  return result.reverse(); // return the result
 }
 ```
 **DFS Recursive**
 
 ```js
 
-/*
-! Recursive solution
-*/
-
-   
 function preOrderArrayRecur(root) { // root, left, right
     if (!root) return [];
 
@@ -165,14 +191,15 @@ function postOrderArrayRecur(root) { // left, right, root
     ];
 }
 
-
 ```
 
-
-
 </details>
-<br>
-<br>
 
+<details>
+<summary> Additional Notes </summary>
 
-
+- [BST ](./Notes/BST.md)
+- [Hash](./Notes/Hash.md)
+- [Heap](./Notes/Heap.md)
+- [AVL ](./Notes/AVL.md)
+- [Red Black](./Notes/RedBlack.md)
