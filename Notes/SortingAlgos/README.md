@@ -220,7 +220,7 @@ function insertionSort(arr) {
 > - The merge sort algorithm is a Divide and Conquer algorithm.
 > - It divides input array in two halves, calls itself for the two halves and then merges the two sorted halves.
 > - The merge(arr1,arr2) function is used for merging two halves recursively.
-
+**Interesting enough merge sort space complexity is O(1) for Linked List but O(N) for arrays. This is due how memory is distributed in Linked List (random addresses). When implementing make sure to not have memory leaks**
 
 </details>
 <details>
