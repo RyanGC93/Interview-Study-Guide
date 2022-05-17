@@ -1,6 +1,9 @@
 # The Large Scale Design Interview
 
 ---
+[Javascript Interview Questions](./javascript-interview-questions/README.md)
+
+### Google CS Topics
 
 **System Design** - Questions are used to assess a candidate's ability to combine knowledge,
 theory, experience and judgement toward solving a real-world engineering problem. In other
