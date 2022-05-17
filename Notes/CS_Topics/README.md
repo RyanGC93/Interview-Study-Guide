@@ -2,6 +2,7 @@
 
 ---
 [Javascript Interview Questions](./javascript-interview-questions/README.md)
+[Web Link](https://github.com/sudheerj/javascript-interview-questions)
 
 ### Google CS Topics
 
