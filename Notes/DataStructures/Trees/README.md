@@ -15,10 +15,10 @@ First of all, a tree is a graph with no cycles.
 
 - Generic binary tree
 - [Binary search tree](./Notes/BST.md)
-- [Avl tree](./Notes/AVL.md)
 - [Hash](./Notes/Hash.md)
 - [Heap](./Notes/Heap.md)
-- [Red-black tree](./Notes/RedBlack.md)
+- [Avl tree](./Notes/BalancedTrees.md)
+- [Red-black tree](./Notes/BalancedTrees.md)
 
 </details>
 

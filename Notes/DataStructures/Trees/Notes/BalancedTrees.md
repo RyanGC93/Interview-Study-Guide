@@ -1,3 +1,117 @@
+# Self Balancing Trees
+
+# Overview
+
+<details>
+<summary>Details</summary>
+
+Self-Balancing-Binary-Search-Trees (Comparisons)
+================================================
+
+
+**Self-Balancing Binary Search Trees** are _**height-balanced**_ binary search trees that automatically keeps height as small as possible when insertion and deletion operations are performed on tree. The height is typically maintained in order of Log n so that all operations take O(Log n) time on average.
+
+**Examples :**  
+- Red Black Tree  
+- AVL Tree:  
+
+**How do Self-Balancing-Tree maintain height?**  
+A typical operation done by trees is rotation. Following are two basic operations that can be performed to re-balance a BST without violating the BST property (keys(left) < key(root) < keys(right)).  
+1) Left Rotation  
+2) Right Rotation
+
+
+
+We have already discussed [AVL tree](https://www.geeksforgeeks.org/avl-tree-set-1-insertion/), [Red Black Tree](https://www.geeksforgeeks.org/red-black-tree-set-1-introduction-2/) and [Splay Tree](https://www.geeksforgeeks.org/splay-tree-set-2-insert-delete/)
+
+# Time Complexity of Balanced Trees
+
+| Metric | RB Tree | AVL Tree | Splay Tree |
+| --- | --- | --- | --- |
+| **Insertion in**  
+**worst case** | **O(1)** | **O(logn)** | **Amortized O(logn)** |
+| **Maximum height**  
+**of tree** | **2\*log(n)** | **1.44\*log(n)** | **O(n)** |
+| **Search in**  
+**worst case** | **O(logn),**  
+**Moderate** | **O(logn),**  
+**Faster** | **Amortized O(logn),**  
+**Slower** |
+| **Efficient Implementation requires** | **Three pointers with color bit per node** | **Two pointers with balance factor per**  
+**node** | **Only two pointers with**  
+**no extra information** |
+| **Deletion in**  
+**worst case** | **O(logn)** | **O(logn)** | **Amortized O(logn)** |
+| **Mostly used** | **As universal data structure** | **When frequent lookups are required** | **When same element is**  
+**retrieved again and again** |
+| **Real world Application** | **Database Transactions** | **Multiset, Multimap, Map, Set, etc.** | **Cache implementation, Garbage collection Algorithms** |
+
+</details>
+
+# Common Examples
+
+<details>
+<summary>Red-Black Tree</summary>
+
+# Red-Black Tree
+
+### Definition
+- A red-black tree is a binary search tree that satisfies the following properties:
+  - Every node is either red or black.
+  - The root is black.
+  - Every leaf (NIL) is black.
+  - If a node is red, then both its children are black.
+  - For each node, all simple paths from the node to descendant leaves contain the same number of black nodes.
+
+#### **Why Red-Black Trees?**
+
+Most of the BST operations (e.g., search, max, min, insert, delete.. etc) take O(h) time where h is the height of the BST. The cost of these operations may become O(n) for a skewed Binary tree. If we make sure that the height of the tree remains O(log n) after every insertion and deletion, then we can guarantee an upper bound of O(log n) for all these operations. The height of a Red-Black tree is always O(log n) where n is the number of nodes in the tree.
+
+
+
+```js
+	class Node { // Red-Black Tree Node
+		constructor(key) {
+			this.key = key;
+			this.left = null;
+			this.right = null;
+			this.color = 'RED';
+		}
+	}
+
+	class RedBlackTree {
+		constructor() {
+			this.root = null;
+		}
+
+		getNewNode(key) {
+			return new Node(key);
+		}
+		getMax(node) {
+			if (node == null)
+				return null;
+
+			while (node.right != null)
+				node = node.right;
+
+			return node;
+		}
+		getMin(node) {
+			if (node == null)
+				return null;
+
+			while (node.left != null)
+				node = node.left;
+
+			return node;
+		}
+```
+
+</details>
+
+<details>
+<summary> AVL Tree</summary>
+
 # AVL Tree
 
 ## Definition
@@ -223,3 +337,4 @@ Following is the implementation for AVL Tree Insertion. The following implementa
 - The AVL trees are more balanced compared to Red-Black Trees, but they may cause more rotations during insertion and deletion. 
 	- So if your application involves many frequent insertions and deletions, then Red Black trees should be preferred.
 	- And if the insertions and deletions are less frequent and search is the more frequent operation, then AVL tree should be preferred over [Red Black Tree](https://www.geeksforgeeks.org/red-black-tree-set-1-introduction-2/).
+</details>

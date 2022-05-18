@@ -1,0 +1,518 @@
+# General Trees,This is based of Trees/README.md,README
+Common Tyoes Of Trees,"- Generic binary tree
+- [Binary search tree](./Notes/BST.md)
+- [Avl tree](./Notes/AVL.md)
+- [Hash](./Notes/Hash.md)
+- [Heap](./Notes/Heap.md)
+- [Red-black tree](./Notes/RedBlack.md)",
+Node Class Representation,"```js
+class TreeNode {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+```",
+Tree Terminology Overview,"- **tree** - graph with no cycles
+- **binary tree** - tree where nodes have at most 2 nodes
+- **root** - the ultimate parent, the single node of a tree that can access every other node through edges; by definition the root will not have a parent
+- **internal node** - a node that has children
+- **leaf** - a node that does not have any children
+- **path** - a series of nodes that can be traveled through edges - for example A, B, E is a path through the above tree
+- **edge** - a connection between two nodes
+- **balanced** - a tree where the difference in height between any two nodes is at most 1
+- **complete** - a tree where all levels are filled, with the possible exception of the last level and the bottom has all nodes filled as far left as possible
+- **depth** - the number of edges from the root to a node
+- **BFS** - breadth first search (Uses a queue)
+- **DFS** - depth first search (Uses a stack)
+  - **Pre-order** - visit the root node first, then visit the left subtree, then the right subtree
+  - **In-order** - visit the left subtree, then the root node, then the right subtree
+  - **Post-order** - visit the left subtree, then the right subtree, then the root node",
+Traversals: **BFS** - Breadth First Search (Uses a queue),"1. **BFS** - Breadth First Search (Uses a queue)
+
+```js
+function bfs(root) { // Iterative
+  const queue = [root];
+  const visited = [];
+
+  while (queue.length) {
+    const node = queue.shift();
+    visited.push(node);
+
+    if (node.left) {
+      queue.push(node.left);
+    }
+
+    if (node.right) {
+      queue.push(node.right);
+    }
+  }
+
+  return visited;
+}
+```",
+Type of DFS Traversals,"**DFS** - Depth First Search (Uses a stack)
+  - **Pre-order** - root, left, right >> [leetcode](https://leetcode.com/problems/binary-tree-preorder-traversal/)
+  - **In-order** - left, root, right >> [leetcode](https://leetcode.com/problems/binary-tree-inorder-traversal/)
+  - **Post-order** - left, right, root >> [leetcode](https://leetcode.com/problems/binary-tree-postorder-traversal/)",Important
+Traversals: **DFS** - Depth First Search (Uses a stack),"
+**DFS Iterative**
+
+```js
+ffunction preOrderArrayIter(root) { // Preorder traversal => root, left, right
+  if (!root) return []; // base case
+  const result = [];
+  const stack = [root];
+  while (stack.length) {
+    const node = stack.pop(); // pop the last element
+    result.push(node.val);  // push the value 1) visit root
+    if (node.right) {
+      stack.push(node.right); // push the right child
+    }
+    if (node.left) {
+      stack.push(node.left); // push the left child
+    }
+  }
+  return result;
+}
+
+function inOrderArrayIter(root) { // Inorder traversal => left, root, right
+  if (!root) return [];
+  const result = [];
+  const stack = [];
+  let current = root;
+  while (stack.length || current) { // while the stack is not empty or the current node is not null
+    if (current) { // if the current node is not null
+      stack.push(current); // push the current node to the stack
+      current = current.left; // set the current node to the left child
+    } else {
+      current = stack.pop();  // set the current node to the last element in the stack
+      result.push(current.val); // push the value of the current node to the result
+      current = current.right; // set the current node to the right child
+    }
+  }
+  return result; // return the result
+}
+
+function postOrderArrayIter(root) { // Postorder traversal => left, right, root
+  if (!root) return [];
+  const result = [];
+  const stack = [root];
+  while (stack.length) {
+    const node = stack.pop();
+    result.push(node.val);
+    if (node.left) {
+      stack.push(node.left);
+    }
+    if (node.right) {
+      stack.push(node.right);
+    }
+  }
+  return result.reverse(); // return the result
+}
+```
+**DFS Recursive**
+
+```js
+
+/*
+! Recursive solution
+*/
+
+   
+function preOrderArrayRecur(root) { // root, left, right
+    if (!root) return [];
+
+    return [ 
+        root.val,
+        ...preOrderArrayRecur(root.left), // left
+        ...preOrderArrayRecur(root.right) 
+    ];
+}
+
+function inOrderArrayRecur(root) { // left, root, right
+    if (!root) return [];
+
+    return [ 
+        ...inOrderArrayRecur(root.left), 
+        root.val, 
+        ...inOrderArrayRecur(root.right) 
+    ];
+}
+
+function postOrderArrayRecur(root) { // left, right, root
+    if (!root) return [];
+
+    return [
+        ...postOrderArrayRecur(root.left),
+        ...postOrderArrayRecur(root.right),
+        root.val,
+    ];
+}
+
+
+```",
+#BST,Based off BST.md,BST
+BST Properties,"- **root.left < root**
+- **root.right >= root**
+- AND the left and Right subtree is a BST",
+BST Time Complexity,"## Time Complexity
+| |Access|Search |Assertion|Deletion |Space|
+|:----|:----|:----|:----|:----|:----|
+|Binary Search Tree|O(n)|O(n)|O(n)|O(n)|O(n)|
+> Insert, Delete, & Search are averagely O(log n)",
+BST Class Representation,"```js
+class BST {
+    constructor() {
+        this.root = null;
+    }
+
+    // Insert a node into the binary search tree
+    insert(val, currentNode = this.root) {
+        if (!currentNode) { // If the tree is empty
+            this.root = new TreeNode(val); // Create a new node
+            return 
+        }
+        if (val < currentNode.val) {
+            if (!currentNode.left) {
+                currentNode.left = new TreeNode(val);
+            } else {
+                this.insert(val, currentNode.left);
+            }
+        } else {
+            if (!currentNode.right) {
+                currentNode.right = new TreeNode(val);
+            }
+            else {
+                this.insert(val, currentNode.right);
+            }
+        }
+
+    }
+
+    // Perform a recursive search through the binary search tree
+    searchRecur(val, currentNode = this.root) {
+        if (!currentNode) {
+            return false;
+        }
+        if (val === currentNode.val) {
+            return true;
+        }
+        if (val < currentNode.val) {
+            return this.searchRecur(val, currentNode.left); //
+        }
+        if (val > currentNode.val) {
+            return this.searchRecur(val, currentNode.right);
+        }
+    }
+    // Perform an iterative search through the binary search tree
+    searchIter(val, currentNode = this.root) {
+        while (currentNode) {
+            if (!currentNode) {
+                return false;
+            }
+            if (val === currentNode.val) {
+                return true;
+            }
+            if (val < currentNode.val) {
+                currentNode = currentNode.left;
+            }else{
+                currentNode = currentNode.right;
+            }
+        }
+        return false;
+    }
+}
+```",
+BST Search Code Implementation,"```js
+    // Perform a recursive search through the binary search tree
+    searchRecur(val, currentNode = this.root) {
+        if (!currentNode) {
+            return false;
+        }
+        if (val === currentNode.val) {
+            return true;
+        }
+        if (val < currentNode.val) {
+            return this.searchRecur(val, currentNode.left); //
+        }
+        if (val > currentNode.val) {
+            return this.searchRecur(val, currentNode.right);
+        }
+    }
+    // Perform an iterative search through the binary search tree
+    searchIter(val, currentNode = this.root) {
+        while (currentNode) {
+            if (!currentNode) {
+                return false;
+            }
+            if (val === currentNode.val) {
+                return true;
+            }
+            if (val < currentNode.val) {
+                currentNode = currentNode.left;
+            }else{
+                currentNode = currentNode.right;
+            }
+        }
+        return false;
+    }
+}
+```",
+Hash Overview,"Overview:
+- Hash tables are used to store key-value pairs.
+
+What Makes a Hash Table Good?
+- Hash tables are fast to search.
+- Doesn't cluster outputs at specific indices but rather clusters them in buckets.
+- Deterministic.(Same input always returns same output)",Hash
+Dealing With Collisions,"Dealing with collisions:
+- Linear probing.
+  - With linear probing, when a collision occurs, the next available slot is used.
+- Separate chaining.
+  - With seperate chaining, at each index, we can store a more sophisticated data structure. (array, linked list, etc.)",
+Code,"### Implementation One
+
+```js
+function hash(key, arrayLen) {
+  let total = 0;
+  let WEIRD_PRIME = 31;
+  for (let i = 0; i < Math.min(key.length, 100); i++) {
+    let char = key[i];
+    let value = char.charCodeAt(0) - 96
+    total = (total * WEIRD_PRIME + value) % arrayLen;
+  }
+  return total;
+}
+
+```
+
+### Implemetation - Hash Table Class
+
+```js
+class HashTable {
+  constructor(size=53){
+    this.keyMap = new Array(size);
+  }
+
+  _hash(key) {
+    let total = 0;
+    let WEIRD_PRIME = 31;
+    for (let i = 0; i < Math.min(key.length, 100); i++) {
+      let char = key[i];
+      let value = char.charCodeAt(0) - 96
+      total = (total * WEIRD_PRIME + value) % this.keyMap.length;
+    }
+    return total;
+  }
+  set(key,value){
+    let index = this._hash(key);
+    if(!this.keyMap[index]){
+      this.keyMap[index] = [];
+    }
+    this.keyMap[index].push([key, value]);
+  }
+  get(key){
+    let index = this._hash(key);
+    if(this.keyMap[index]){
+      for(let i = 0; i < this.keyMap[index].length; i++){
+        if(this.keyMap[index][i][0] === key) {
+          return this.keyMap[index][i][1]
+        }
+      }
+    }
+    return undefined;
+  }
+  keys(){
+    let keysArr = [];
+    for(let i = 0; i < this.keyMap.length; i++){
+      if(this.keyMap[i]){
+        for(let j = 0; j < this.keyMap[i].length; j++){
+          if(!keysArr.includes(this.keyMap[i][j][0])){
+            keysArr.push(this.keyMap[i][j][0])
+          }
+        }
+      }
+    }
+    return keysArr;
+  }
+  values(){
+    let valuesArr = [];
+    for(let i = 0; i < this.keyMap.length; i++){
+      if(this.keyMap[i]){
+        for(let j = 0; j < this.keyMap[i].length; j++){
+          if(!valuesArr.includes(this.keyMap[i][j][1])){
+            valuesArr.push(this.keyMap[i][j][1])
+          }
+        }
+      }
+    }
+    return valuesArr;
+  }
+}
+
+```",
+Heap Definition,"- A heap is a tree where the value of each node is greater than or equal to the values of its children
+  - In min-heap property, the value of each node, or child, is greater than or equal to the value of its parent, with the minimum value at the root node.
+  - In max-heap property, the value of each node, or child, is less than or equal to the value of its parent, with the maximum value at the root node.
+- A heap should be a balanced tree but does not follow the BST property.",Heap
+"# Time Complexity of a Heap
+
+","# Time Complexity of a Heap
+
+- Access O log n
+- Insert  O log n 
+- Search O log n
+- Delete O log n
+- Extraction(min/max): O(1)
+
+*But can vary by implementation*",
+"**How is Binary Heap represented?**  
+","**How is Binary Heap represented?**  
+A Binary Heap is a Complete Binary Tree. A binary heap is typically represented as an array.
+
+- The root element will be at Arr[0]
+- The left child of the root element will be at Arr[2 * 0 + 1]
+- The right child of the root element will be at Arr[2 * 0 + 2]
+- The parent element will be at Arr[(i-1) / 2]",
+### Methods or Operations of Heap,"### Methods or Operations of Heap
+
+- **find** - in order to find an item in a heap
+- **insert** - in order to add an item in a heap ensuring the heap property is maintained min-heap and max-heap property
+- **delete** - in order to remove an item in a heap
+- **extract** - in order to return the value of an item and then delete from heap
+- **replace** - in order to extract or pop the root and insert or push a new item in a heap ensuring the heap property has maintained min-heap and max-heap property
+
+Apart from these basic operations, there are other operations such as:
+
+- **size**, which returns the size of heap
+- **is-empty**, which returns ''true'' if heap is empty or ''false'' if it has value
+- merge, which involves the joining or union of two heaps; all the values from both heaps are included but the original heaps are preserved
+- **meld**, which involves the joining of two heaps where the values from both heaps are included but the original heaps are destroyed
+
+So in order to fill the Nth level, (N-1) levels should be completely filled first and the filling of nodes in the Nth level should take place from left to right.",
+# Priority Implementation,"
+<summary>Definition</summary>
+
+```js
+
+class PriorityQueue {
+    constructor(){
+        this.values = [];
+    }
+    enqueue(val, priority){
+        let newNode = new Node(val, priority);
+        this.values.push(newNode);
+        this.bubbleUp();
+    }
+    bubbleUp(){
+        let idx = this.values.length - 1;
+        const element = this.values[idx];
+        while(idx > 0){
+            let parentIdx = Math.floor((idx - 1)/2);
+            let parent = this.values[parentIdx];
+            if(element.priority >= parent.priority) break;
+            this.values[parentIdx] = element;
+            this.values[idx] = parent;
+            idx = parentIdx;
+        }
+    }
+    dequeue(){
+        const min = this.values[0];
+        const end = this.values.pop();
+        if(this.values.length > 0){
+            this.values[0] = end;
+            this.sinkDown();
+        }
+        return min;
+    }
+    sinkDown(){
+        let idx = 0;
+        const length = this.values.length;
+        const element = this.values[0];
+        while(true){
+            let leftChildIdx = 2 * idx + 1;
+            let rightChildIdx = 2 * idx + 2;
+            let leftChild,rightChild;
+            let swap = null;
+
+            if(leftChildIdx < length){
+                leftChild = this.values[leftChildIdx];
+                if(leftChild.priority < element.priority) {
+                    swap = leftChildIdx;
+                }
+            }
+            if(rightChildIdx < length){
+                rightChild = this.values[rightChildIdx];
+                if(
+                    (swap === null && rightChild.priority < element.priority) || 
+                    (swap !== null && rightChild.priority < leftChild.priority)
+                ) {
+                   swap = rightChildIdx;
+                }
+            }
+            if(swap === null) break;
+            this.values[idx] = this.values[swap];
+            this.values[swap] = element;
+            idx = swap;
+        }
+    }
+}
+
+class Node {
+    constructor(val, priority){
+        this.val = val;
+        this.priority = priority;
+    }
+}
+
+let ER = new PriorityQueue();
+ER.enqueue(""common cold"",5)
+ER.enqueue(""gunshot wound"", 1)
+ER.enqueue(""high fever"",4)
+ER.enqueue(""broken arm"",2)
+ER.enqueue(""glass in foot"",3)
+
+```",
+Balanced Trees,"Self-Balancing-Binary-Search-Trees (Comparisons)
+================================================
+
+
+**Self-Balancing Binary Search Trees** are _**height-balanced**_ binary search trees that automatically keeps height as small as possible when insertion and deletion operations are performed on tree. The height is typically maintained in order of Log n so that all operations take O(Log n) time on average.
+
+**Examples :**  
+- Red Black Tree  
+- AVL Tree:  
+
+**How do Self-Balancing-Tree maintain height?**  
+A typical operation done by trees is rotation. Following are two basic operations that can be performed to re-balance a BST without violating the BST property (keys(left) < key(root) < keys(right)).  
+1) Left Rotation  
+2) Right Rotation
+
+
+
+We have already discussed [AVL tree](https://www.geeksforgeeks.org/avl-tree-set-1-insertion/), [Red Black Tree](https://www.geeksforgeeks.org/red-black-tree-set-1-introduction-2/) and [Splay Tree](https://www.geeksforgeeks.org/splay-tree-set-2-insert-delete/)
+
+# Time Complexity of Balanced Trees
+
+| Metric | RB Tree | AVL Tree | Splay Tree |
+| --- | --- | --- | --- |
+| **Insertion in**  
+**worst case** | **O(1)** | **O(logn)** | **Amortized O(logn)** |
+| **Maximum height**  
+**of tree** | **2\*log(n)** | **1.44\*log(n)** | **O(n)** |
+| **Search in**  
+**worst case** | **O(logn),**  
+**Moderate** | **O(logn),**  
+**Faster** | **Amortized O(logn),**  
+**Slower** |
+| **Efficient Implementation requires** | **Three pointers with color bit per node** | **Two pointers with balance factor per**  
+**node** | **Only two pointers with**  
+**no extra information** |
+| **Deletion in**  
+**worst case** | **O(logn)** | **O(logn)** | **Amortized O(logn)** |
+| **Mostly used** | **As universal data structure** | **When frequent lookups are required** | **When same element is**  
+**retrieved again and again** |
+| **Real world Application** | **Database Transactions** | **Multiset, Multimap, Map, Set, etc.** | **Cache implementation, Garbage collection Algorithms** |",
+Balanced Trees,- I don't think that I need to know this too well just overall concepts,

@@ -24,25 +24,25 @@ A Binary Heap is a Complete Binary Tree. A binary heap is typically represented 
   The traversal method use to achieve Array representation is **Level Order**
 
 <details>
-<summary>Illyustration</summary>
+<summary>Illustration</summary>
 
 ![](https://www.geeksforgeeks.org/wp-content/uploads/binaryheap.png)
 </details>
 
 ### Methods or Operations of Heap
 
-- find - in order to find an item in a heap
-- insert - in order to add an item in a heap ensuring the heap property is maintained min-heap and max-heap property
-- delete - in order to remove an item in a heap
-- extract - in order to return the value of an item and then delete from heap
-- replace - in order to extract or pop the root and insert or push a new item in a heap ensuring the heap property has maintained min-heap and max-heap property
+- **find** - in order to find an item in a heap
+- **insert** - in order to add an item in a heap ensuring the heap property is maintained min-heap and max-heap property
+- **delete** - in order to remove an item in a heap
+- **extract** - in order to return the value of an item and then delete from heap
+- **replace** - in order to extract or pop the root and insert or push a new item in a heap ensuring the heap property has maintained min-heap and max-heap property
 
 Apart from these basic operations, there are other operations such as:
 
-- size, which returns the size of heap
-- is-empty, which returns ''true'' if heap is empty or ''false'' if it has value
+- **size**, which returns the size of heap
+- **is-empty**, which returns ''true'' if heap is empty or ''false'' if it has value
 - merge, which involves the joining or union of two heaps; all the values from both heaps are included but the original heaps are preserved
-- meld, which involves the joining of two heaps where the values from both heaps are included but the original heaps are destroyed
+- **meld**, which involves the joining of two heaps where the values from both heaps are included but the original heaps are destroyed
 
 So in order to fill the Nth level, (N-1) levels should be completely filled first and the filling of nodes in the Nth level should take place from left to right.
 
