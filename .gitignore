@@ -3,3 +3,4 @@ node_modules
 .gitignore
 .vscode/
 *:Zone.Identifier
+__Scratch/

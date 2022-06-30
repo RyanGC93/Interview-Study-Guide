@@ -252,11 +252,11 @@ class Graph {
 
 ### When to use which traversal?
 
-- Breadth First Search 
+- Breadth First Search (Uses a Queue)
   - Used to find shortest path
   - Used to find connected components
   - Used when backtracking is not needed
-- Depth First Search
+- Depth First Search (Uses a Stack)
   - Used to find connected components
   - Used to find strongly connected components
   - Used to find all possible paths
@@ -396,5 +396,32 @@ Indeed, since the problem concerns about the _path exploration_ in a _graph_ dat
 
 For more details about how to implement a backtracking algorithm, one can refer to our [Explore card](https://leetcode.com/explore/learn/card/recursion-ii/472/backtracking/).
 
+</details>
+
+<details>
+<summary style="margin-bottom:8px">Bit Manipulation</summary>
+
+**Overview**
+
+Bit manipulation is a technique that is used to solve problems that are related to binary numbers. Bitwise operators can be used to create, manipulate, and compare binary numbers helping to save memory compared to collections of booleans.
+
+Links
+
+- [Bit Manipulation and Bitwise Operators in JS](https://algodaily.com/lessons/bitwise-operators-and-bit-manipulation-for-interviews)
+- [Bit Manipulation](https://www.geeksforgeeks.org/bit-manipulation-set-1-introduction-and-basic-operations/)
+- [What is a bitmask and a mask](https://stackoverflow.com/questions/31575691/what-is-a-bitmask-and-a-mask)
+
+</details>
+
+<details>
+<summary style="margin-bottom:8px">Disjointed Set Union</summary>
+
+**Overview**
+
+**Links**
+- [Disjointed Set Union](https://www.geeksforgeeks.org/disjoint-set-union/)
+
+**Example Problems**
+- [Leet Code #323](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/)
 
 </details>
