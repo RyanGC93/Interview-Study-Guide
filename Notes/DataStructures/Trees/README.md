@@ -102,6 +102,24 @@ function bfs(root) { // Iterative
   - **In-order** - left, root, right >> [leetcode](https://leetcode.com/problems/binary-tree-inorder-traversal/)
   - **Post-order** - left, right, root >> [leetcode](https://leetcode.com/problems/binary-tree-postorder-traversal/)
 
+**Note:Tracking The Levels With DFS**
+
+```js
+var deepestLeavesSum = function(root) {
+    let sums = [] // holds the sums of each level
+    const dfs = (node, lvl) => {
+        if (lvl === sums.length) sums[lvl] = node.val // if we're at a new level, add the node's value to the sums array
+        else sums[lvl] += node.val // otherwise, add the node's value to the current level's sum
+        if (node.left) dfs(node.left, lvl+1) // if node.left exists, then we increment lvl by 1
+        if (node.right) dfs(node.right, lvl+1) // if node.right exists, then we increment lvl by 1
+    }
+    dfs(root, 0) // start at root, level 0
+    return sums[sums.length-1] // return the last element in sums
+};
+
+```
+
+
 **DFS Iterative**
 
 ```js

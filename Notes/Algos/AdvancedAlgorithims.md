@@ -5,6 +5,13 @@ Algorithims that covered are;
 1) Dijistra's algorithm
 2) A* algorithm
 
+### Dijistra's Algorithm
+
+- Dijistra's algorithm is used to find the shortest path between two nodes in a graph.
+- It is also used to find the shortest path between two nodes in a weighted graph and  directed weighted graph.
+- It can be implemented using a priority queue or a set.
+
+
 ## Priority Queue
 
 <details>
@@ -40,14 +47,14 @@ class PriorityQueue {
 ## Dijkstra's Algorithm
 
 <details>
-<summary>Pseudo Code</summary>
+<summary>Pseudo Code For a priority queue</summary>
 
 1. Create a priority queue
 2. Add the start node to the priority queue
 3. While the priority queue is not empty
 4. Dequeue the node with the lowest priority
 5. For each child node
-6.If it is the goal
+6. If it is the goal
 7. Return the path to the goal
 8. Else
 9. If it is not in the priority queue

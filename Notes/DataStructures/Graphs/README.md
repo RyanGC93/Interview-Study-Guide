@@ -246,6 +246,28 @@ class Graph {
 ## Traversing a graph
 
 <details>
+<summary style="margin-bottom:8px">Overview</summary>
+
+# Graph Traversals Can Be either Breadth First Search or Depth First Search
+
+### When to use which traversal?
+
+- Breadth First Search 
+  - Used to find shortest path
+  - Used to find connected components
+  - Used when backtracking is not needed
+- Depth First Search
+  - Used to find connected components
+  - Used to find strongly connected components
+  - Used to find all possible paths
+  - Used to search a graph for a specific value
+  - Used when backtracking is needed
+
+
+
+</details>
+
+<details>
 <summary style="margin-bottom:8px" style="text-indent: 20px; font-size:18px;margin-bottom:6px">Traversing with a <b>Node</b> implementation</summary>
 
 #### Using a node implementation with recursion:
@@ -357,3 +379,22 @@ function depthFirstIter(graph) { // Exploring all nodes, even unconnected ones.
 </details>
 
 ---
+
+## Problem Solving Techniques
+
+<details>
+<summary style="margin-bottom:8px">Backtracking</summary>
+
+
+**Overview**
+
+If a hint is ever given on the problem description, that would be _**backtracking**_.
+
+Indeed, since the problem concerns about the _path exploration_ in a _graph_ data structure, it is a perfect scenario to apply the backtracking algorithm.
+
+> As a reminder, [backtracking](https://en.wikipedia.org/wiki/Backtracking) is a general algorithm that incrementally builds candidates to the solutions, and abandons a candidate (_"backtrack"_) as soon as it determines that the candidate cannot possibly lead to a valid solution.
+
+For more details about how to implement a backtracking algorithm, one can refer to our [Explore card](https://leetcode.com/explore/learn/card/recursion-ii/472/backtracking/).
+
+
+</details>
