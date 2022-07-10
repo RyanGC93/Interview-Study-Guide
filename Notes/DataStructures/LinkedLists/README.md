@@ -1,19 +1,5 @@
 # Linked Lists
 
-<details>
-  <summary> Resources </summary>
-
-- [Linked List Quizlet](https://quizlet.com/693898026/linked-list-flash-cards/)
-- [4 Incredibly Useful Linked List Logic for Interview](https://medium.com/javarevisited/4-incredibly-useful-linked-list-tips-for-interview-79d80a29f8fc)
-
-</details>
-
-<details>
-  <summary> Quick Notes </summary>
-Linked List --> when you have a problem dealing with deleting or adding a node make a dummy head to take care of edge cases such as a list with only one node, or removing the head of the list 
-- Use Dummy Nodes to avoid edge cases (https://stackoverflow.com/questions/37324972/what-is-a-dummy-head)
-
-</details>
 
 <details>
 <summary>Linked List Class Properties</summary>
@@ -395,7 +381,9 @@ class DoublyLinkedList{
 </details>
 
 <details>
-<summary>Fast and Slow Pointer Technique</summary>
+<summary>Problem Solving Techniques</summary>
+
+Fast/Slow Pointer
 
 -  Slow Pointer is used to find the middle of the linked list
 -  Fast Pointer is used to find the middle of the linked list and fast pointer are simply the two pointers name 
@@ -405,6 +393,8 @@ class DoublyLinkedList{
 ---
 
 **[Examples](https://codeburst.io/fast-and-slow-pointer-floyds-cycle-detection-algorithm-9c7a8693f491)**
+
+Dummy Node--> when you have a problem dealing with deleting or adding a node make a dummy head to take care of edge cases such as a list with only one node, or removing the head of the list 
 
 
 </details>
