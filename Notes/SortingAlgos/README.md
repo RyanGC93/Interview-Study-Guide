@@ -38,7 +38,7 @@
 </details>
 
 <details>
-<summary style="text-indent: 20px; font-size:18px"> In Depth  </summary>
+<summary style="text-indent: 20px; font-size:18px">All Sorting Algos In Depth  </summary>
 
 ## Sorting Algorithms
 

@@ -19,12 +19,8 @@ Stacks and Queues are so similar in composition that we can discuss their proper
 
 <br>
 
-### Stacks (FIFO)
-
----
-
 <details>
-<summary>Methods</summary>
+<summary>Stacks (FIFO) Methods</summary>
 
 <br>
 
@@ -38,12 +34,8 @@ Stacks and Queues are so similar in composition that we can discuss their proper
 
 <br>
 
-### Queues (LILO)
-
----
-
 <details>
-<summary>Methods</summary>
+<summary>Queues (LILO) Methods</summary>
 
 <br>
 
@@ -55,13 +47,10 @@ Stacks and Queues are so similar in composition that we can discuss their proper
 
 </details>
 
-
-### Time Complexity of Stacks and Queues
-
----
+<br>
 
 <details>
-<summary>Time and Space Complexity Analysis
+<summary>Time and Space Complexity of Stacks and Queues
 </summary>
 
 <br>

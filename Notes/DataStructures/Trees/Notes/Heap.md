@@ -9,8 +9,8 @@
 ### Definition
 
 - A heap is a tree where the value of each node is greater than or equal to the values of its children
-  - In min-heap property, the value of each node, or child, is greater than or equal to the value of its parent, with the minimum value at the root node.
-  - In max-heap property, the value of each node, or child, is less than or equal to the value of its parent, with the maximum value at the root node.
+  - In **min-heap** property, the value of each node, or child, is greater than or equal to the value of its parent, with the minimum value at the root node.
+  - In **max-heap** property, the value of each node, or child, is less than or equal to the value of its parent, with the maximum value at the root node.
 - A heap should be a balanced tree but does not follow the BST property.
 
 **How is Binary Heap represented?**  
@@ -41,7 +41,7 @@ Apart from these basic operations, there are other operations such as:
 
 - **size**, which returns the size of heap
 - **is-empty**, which returns ''true'' if heap is empty or ''false'' if it has value
-- merge, which involves the joining or union of two heaps; all the values from both heaps are included but the original heaps are preserved
+- **merge**, which involves the joining or union of two heaps; all the values from both heaps are included but the original heaps are preserved
 - **meld**, which involves the joining of two heaps where the values from both heaps are included but the original heaps are destroyed
 
 So in order to fill the Nth level, (N-1) levels should be completely filled first and the filling of nodes in the Nth level should take place from left to right.
