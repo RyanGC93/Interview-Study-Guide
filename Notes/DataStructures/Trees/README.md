@@ -3,15 +3,12 @@
 <details>
 <summary>What is a Tree? </summary>
 
-First of all, a tree is a graph with no cycles.
-  - A graph is a set of nodes and edges.
+> A tree is a graph with no cycles A graph is a set of nodes and edges.
 
 </details>
 
 <details>
 <summary>Common Types of Trees</summary>
-
-## Common Trees
 
 - Generic binary tree
 - [Binary search tree](./Notes/BST.md)
@@ -24,8 +21,6 @@ First of all, a tree is a graph with no cycles.
 
 <details>
 <summary>Node Representation</summary>
-
-### Node Representation
 
 ```js
 class TreeNode {
@@ -40,8 +35,6 @@ class TreeNode {
 
 <details>
 <summary>Basic Tree Terminology</summary>
-
-## Basic Tree Terminology
 
 - **tree** - graph with no cycles
 - **binary tree** - tree where nodes have at most 2 nodes
@@ -123,7 +116,7 @@ var deepestLeavesSum = function(root) {
 **DFS Iterative**
 
 ```js
-ffunction preOrderArrayIter(root) { // Preorder traversal => root, left, right
+function preOrderArrayIter(root) { // Preorder traversal => root, left, right
   if (!root) return []; // base case
   const result = [];
   const stack = [root];

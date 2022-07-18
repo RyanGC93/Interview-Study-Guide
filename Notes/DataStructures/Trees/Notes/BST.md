@@ -16,9 +16,13 @@ BST Properties
 </details>
 
 <details>
-<summary>Traversal Visualization</summary>
+<summary>Traversal</summary>
 
-![](https://assets.aaonline.io/data_structures_algorithms/binary_search_trees/images/bsts.png)
+![](https://leetcode.com/explore/learn/card/introduction-to-data-structure-binary-search-tree/140/introduction-to-a-bst/Figures/binary_search_tree/BST_example.png)
+
+> - Inorder Traversal: Left, Root, Right (values will be in ascending order)
+> - Preorder Traversal: Root, Left, Right
+> - Postorder Traversal: Left, Right, Root
 
 </details>
 
