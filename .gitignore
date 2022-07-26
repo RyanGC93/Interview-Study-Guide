@@ -1,6 +1,7 @@
-node_modules
+enode_modules
 .DS_Store
 .gitignore
 .vscode/
 *:Zone.Identifier
 __Scratch/
+scratch.js
