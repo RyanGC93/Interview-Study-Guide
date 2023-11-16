@@ -435,6 +435,7 @@ function radixSort(arr) { // O(n)
 <summary style="text-decoration: underline;margin-top: 5px; font-size: 22px;margin-bottom: 10px"> Binary Search </summary>
 
 > A searching Algo used in a sorted array by repeatedly dividing the search interval in half
+
 > Binary Search requires that the array is already sorted
 
 > **Binary Search Algorithm Steps:** 
